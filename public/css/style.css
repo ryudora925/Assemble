@@ -24,6 +24,7 @@
 
 .signin .form-signin .form-control{
     width: 40%;
+    height: 30%;
     padding: 10px 0 10px 0;
     margin-bottom: 30px;
 }
@@ -43,6 +44,7 @@
 
 .signup .form-signup .form-control{
     width: 40%;
+    height: 30%;
     padding: 10px 0 10px 0;
     margin-bottom: 30px;
 }

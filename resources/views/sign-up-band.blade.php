@@ -12,6 +12,8 @@
     <body class="signup text-center">
         <h1>Assemble</h1>
 
+        <h2>新規登録(バンド)</h2>
+
         <main class="form-signup">
             <form action="" method="POST">
                 <input type="text" class="form-control" name="name" placeholder="バンド名">
