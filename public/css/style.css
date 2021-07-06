@@ -1,0 +1,70 @@
+/*
+ログイン画面
+*/
+.text-center h1{
+    text-align: center;
+    border-bottom: black solid 1px;
+}
+
+.text-center h2{
+    padding-top: 30px;
+    text-align: center;
+}
+
+.signin .form-signin{
+    text-align: center;
+    white-space: pre-line;
+    word-break: break-all;
+    font-size: 15px;
+}
+
+.signin .form-signin a{
+    text-decoration: none;
+}
+
+.signin .form-signin .form-control{
+    width: 40%;
+    height: 30%;
+    padding: 10px 0 10px 0;
+    margin-bottom: 30px;
+}
+
+.signin .form-signin button{
+    font-size: 15px;
+}
+
+
+/*
+新規登録画面(個人・バンド)
+*/
+.signup .form-signup{
+    text-align: center;
+    white-space: pre-line;
+}
+
+.signup .form-signup .form-control{
+    width: 40%;
+    height: 30%;
+    padding: 10px 0 10px 0;
+    margin-bottom: 30px;
+}
+
+.signup .form-signup button{
+    font-size: 15px;
+}
+
+/*
+登録完了画面
+*/
+.text-center{
+    text-align: center;
+}
+
+.text-center p{
+    padding-top: 15px;
+}
+
+.text-center a{
+    text-decoration: none;
+    font-size: 20px;
+}
