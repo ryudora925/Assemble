@@ -9,13 +9,13 @@
         <meta name="description" content="登録完了画面">
     </head>
 
-    <body class="complete text-center">
-        <h1>Assemble</h1>
+    <body>
+        <div class="complete text-center">
+            <h1>Assemble</h1>
+            <h2>登録が完了しました</h2>
 
-        <h2>登録が完了しました</h2>
-        
-        <p><a href="/">ログインする</a></p>
-
+            <p><a href="/">ログインする</a></p>
+        </div>
     </body>
 
 </html>
