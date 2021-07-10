@@ -1,9 +1,17 @@
 /*
-ログイン画面
+全体
 */
+body{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .text-center h1{
     text-align: center;
+    margin-top: 15px;
     border-bottom: black solid 1px;
+    margin-bottom: 0;
+    font-size: 40px;
 }
 
 .text-center h2{
@@ -11,6 +19,13 @@
     text-align: center;
 }
 
+.main{
+    display: flex;
+}
+
+/*
+ログイン画面
+*/
 .signin .form-signin{
     text-align: center;
     white-space: pre-line;
@@ -67,4 +82,87 @@
 .text-center a{
     text-decoration: none;
     font-size: 20px;
+}
+
+/*
+個人マイページ画面
+*/
+.main .side .nav-item{
+    list-style: none;
+}
+
+.main .side .nav-item a{
+    text-decoration: none;
+}
+
+/*
+サイドメニュー
+*/
+.side{
+    width: 12%;
+    height: 100%;
+}
+
+.side .flex-column{
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+.main .side .list{
+    text-align: center;
+    padding: 30% 0 30% 0;
+    border-bottom: solid 1px #000;
+}
+
+
+
+/*
+プロフィール
+*/
+.main .profile-area{
+    display: flex;
+    width: 100%;
+    border-left: solid 1px #000;
+}
+
+.main .profile-icon{
+    width:20%;
+    height: 190px;    
+    margin: 3% 3% 3% 40px;
+    border: solid 1px #000;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.main .profile-area .myself{
+    margin-top: 0;
+    width: calc(100% - 20%);
+    text-align: center;
+}
+
+.main .profile-area .myself .name{
+    margin: 20px 0 10px 0;
+    font-size: 30px;
+}
+
+.main .profile-area .myself .intro{
+    margin: 0 3px 15px 0;
+    padding: 5px 5px 10% 5px;
+    border: solid 1px #000;
+}
+
+.main .profile-area .myself .details{
+    width: 100%;
+    height: 60%;
+}
+
+.main .profile-area .myself .details p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.main .profile-area .myself button{
+    width: 20%;
+    height: 10%;
 }
