@@ -50,15 +50,15 @@
                 </div>
                 <!--名前、自己紹介文-->
                 <div class="myself">
-                    <p class="name">名前: Matsuhashi Saneto</p>
+                    <p class="name">バンド名: Matsuhashi Saneto</p>
                     <p class="intro">岐阜県の岐阜市に住んでいます。</p>
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
-                        <p>パート:</p>
-                        <p>楽器経歴:</p>
-                        <p>居住地:</p>
-                        <p>性別:</p>
-                        <p>やりたいジャンル:</p>
+                        <p>募集しているパート:</p>
+                        <p>主な活動地域:</p>
+                        <p>今いるパート:</p>
+                        <p>曲のジャンル:</p>
+                        <p>カバーorオリジナル:</p>
                     </div>
                     <a href=""><button>編集する</button></a>
                 </div>

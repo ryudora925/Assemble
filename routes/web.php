@@ -33,6 +33,10 @@ Route::get('profile',function(){
     return view('profile');
 });
 
+Route::get('profile-band',function(){
+    return view('profile-band');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
