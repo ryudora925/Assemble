@@ -12,7 +12,9 @@
     <body>
         <div id="full-screen">
             <div class="signup text-center">
-                <h1>Assemble</h1>
+                <div class="welcome-title">
+                    <h1>Assemble</h1>    
+                </div>
                 <h2>新規登録(個人)</h2>
 
                 <main class="form-signup">

@@ -12,7 +12,9 @@
     <body>
         <div id="full-screen">
             <div class="signin text-center">
-                <h1>Assemble</h1>
+                <div class="welcome-title">
+                    <h1>Assemble</h1>
+                </div>
                 <h2>Assembleにログイン</h2>
 
                 <main class="form-signin">
@@ -28,5 +30,4 @@
             </div>
         </div>
     </body>
-
 </html>

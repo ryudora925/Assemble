@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +30,22 @@ Route::get('complete',function(){
     return view('complete');
 });
 
-Route::get('profile',function(){
-    return view('profile');
-});
+Route::get('/profile',[ProfileController::class,'show']);
 
 Route::get('profile-band',function(){
     return view('profile-band');
+});
+
+Route::get('search-band',function(){
+    return view('search-band');
+});
+
+Route::get('search',function(){
+    return view('search');
+});
+
+Route::get('player',function(){
+    return view('player');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
