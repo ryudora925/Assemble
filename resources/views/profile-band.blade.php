@@ -9,9 +9,11 @@
         <meta name="description" content="プロフィール画面">
     </head>
 
-    <body>
-        <h1>Assemble</h1>
-
+    <body><!--バンドでログイン-->
+        <header class="title">
+            <h1>Assemble</h1>
+            <p>マイページ</p>
+        </header>
         <div class="main">
             <!--サイドメニュー-->
             <div class="side">
@@ -19,19 +21,19 @@
                     <!--マイページ-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="#">マイページ</a>
+                            <a href="/profile-band">マイページ</a>
                         </li>
                     </div>
                     <!--一覧-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="">一覧</a>
+                            <a href="/player">一覧</a>
                         </li>
                     </div>
                     <!--絞り込み-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="">絞り込み</a>
+                            <a href="/search">絞り込み</a>
                         </li>
                     </div>
                     <!--やりとり中-->
@@ -50,8 +52,8 @@
                 </div>
                 <!--名前、自己紹介文-->
                 <div class="myself">
-                    <p class="name">バンド名: Matsuhashi Saneto</p>
-                    <p class="intro">岐阜県の岐阜市に住んでいます。</p>
+                    <p class="name">バンド名: かりゆし58</p>
+                    <p class="intro">沖縄発、全国飛び回ってます。</p>
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
                         <p>募集しているパート:</p>
