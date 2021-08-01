@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,8 @@ Route::get('search',function(){
     return view('search');
 });
 
-Route::get('player',function(){
-    return view('player');
-});
+Route::get('/player',[PlayerController::class,'player']);
+
 Route::post('/user/profile', [UserController::class, 'store'])->name('profile');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

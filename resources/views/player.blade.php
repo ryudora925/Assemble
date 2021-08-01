@@ -48,47 +48,14 @@
 
             <div class="content">
                 <div class="grid">
+                @foreach($players as $player)
                     <div class="item">
-                        <p>名前:</p>
-                        <a href=""><img src="../images/5.webp" alt=""></a>
+                        <p>名前:{{ $player->name }}</p>
+                        <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
                         <p>パート:</p>
                         <p>やりたいジャンル:</p>
                     </div>
-
-                    <div class="item">
-                        <p>名前:</p>
-                        <img src="../images/5.webp" alt="">
-                        <p>パート:</p>
-                        <p>やりたいジャンル:</p>
-                    </div>
-
-                    <div class="item">
-                        <p>名前:</p>
-                        <img src="../images/5.webp" alt="">
-                        <p>パート:</p>
-                        <p>やりたいジャンル:</p>
-                    </div>
-
-                    <div class="item">
-                        <p>名前:</p>
-                        <img src="../images/5.webp" alt="">
-                        <p>パート:</p>
-                        <p>やりたいジャンル:</p>
-                    </div>
-
-                    <div class="item">
-                        <p>名前:</p>
-                        <img src="../images/5.webp" alt="">
-                        <p>パート:</p>
-                        <p>やりたいジャンル:</p>
-                    </div>
-
-                    <div class="item">
-                        <p>名前:</p>
-                        <img src="../images/5.webp" alt="">
-                        <p>パート:</p>
-                        <p>やりたいジャンル:</p>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </div>
