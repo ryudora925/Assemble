@@ -56,11 +56,11 @@
                     <p class="intro">沖縄発、全国飛び回ってます。</p>
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
-                        <p>募集しているパート:</p>
-                        <p>主な活動地域:</p>
-                        <p>今いるパート:</p>
-                        <p>曲のジャンル:</p>
-                        <p>カバーorオリジナル:</p>
+                        <p>募集しているパート:{{$user_info['want_part']}}</p>
+                        <p>主な活動地域:{{$user_info['area']}}</p>
+                        <p>今いるパート:{{$user_info['band_part']}}</p>
+                        <p>曲のジャンル:{{$user_info['category']}}</p>
+                        <p>カバーorオリジナル:{{$user_info['style']}}</p>
                     </div>
                     <a href=""><button>編集する</button></a>
                 </div>
