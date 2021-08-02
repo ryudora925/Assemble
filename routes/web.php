@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlayerController;
 
@@ -32,7 +31,10 @@ Route::get('complete',function(){
     return view('complete');
 });
 
-Route::get('/profile',[ProfileController::class,'show']);
+//Route::get('profile',function(){
+//    return view('profile');
+//});
+Route::get('profile',[UserController::class,'index'])->name('profile.index');
 
 Route::get('profile-band',function(){
     return view('profile-band');

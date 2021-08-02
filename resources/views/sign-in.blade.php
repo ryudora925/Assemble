@@ -19,14 +19,6 @@
 
                 <main class="form-signin">
                     
-                    {{--
-                    <form action="{{ route('login') }}" method="POST">
-                        @csrf
-                        <input type="email" class="form-control" name="email" placeholder="メールアドレス">
-                        <input type="password" class="form-control" name="password" placeholder="パスワード">
-                        <button>ログイン</button>
-                    </form>
-                    --}}    
                     <form action="/login" method="POST">
                         @csrf
                         <input type="email" class="form-control" name="email" placeholder="メールアドレス">
