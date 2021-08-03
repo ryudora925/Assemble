@@ -52,8 +52,8 @@
                     <div class="item">
                         <p>名前:{{ $player->name }}</p>
                         <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
-                        <p>パート:</p>
-                        <p>やりたいジャンル:</p>
+                        <p>パート:{{ $player->PersonInfo->part }}</p>
+                        <p>やりたいジャンル:{{ $player->PersonInfo->category }}</p>
                     </div>
                 @endforeach
                 </div>
