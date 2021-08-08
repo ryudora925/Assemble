@@ -12,7 +12,7 @@
     <body><!--バンドでログインしている時-->
         <header class="title">
             <h1>Assemble</h1>
-            <p>一覧個人探し</p>
+            <p>ログアウト</p>
         </header>
 
         <div class="main">
@@ -52,8 +52,16 @@
                     <div class="item">
                         <p>名前:{{ $player->name }}</p>
                         <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
-                        <p>パート:{{ $player->PersonInfo->part }}</p>
-                        <p>やりたいジャンル:{{ $player->PersonInfo->category }}</p>
+                        @if($player->PersonInfo->part)
+                        <p>パート:{{ App\Models\Utilities::PART[$player->PersonInfo->part] }}</p>
+                        @else
+                        <p>パート:</p>
+                        @endif
+                        @if($player->PersonInfo->category)
+                        <p>やりたいジャンル:{{ App\Models\Utilities::CATEGORY[$player->PersonInfo->category] }}</p>
+                        @else
+                        <p>やりたいジャンル:</p>
+                        @endif
                     </div>
                 @endforeach
                 </div>

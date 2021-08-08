@@ -13,7 +13,6 @@ class PlayerController extends Controller
     //
     public function player(){
         $players = User::select('name','icon','id')->with('PersonInfo')->get();
-        //$players = PersonInfo::select('part')->get();
         //dd($players, $players->first(), $players->first()->PersonInfo);
         return view('player',[
             "players" => $players
