@@ -52,15 +52,35 @@
                 </div>
                 <!--名前、自己紹介文-->
                 <div class="myself">
-                    <p class="name">バンド名: かりゆし58</p>
-                    <p class="intro">沖縄発、全国飛び回ってます。</p>
+                    <p class="name">バンド名: {{$user_info['name']}}</p>
+                    <p class="intro">{{$band_info['introduction']}}</p>
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
-                        <p>募集しているパート:{{$user_info['want_part']}}</p>
-                        <p>主な活動地域:{{$user_info['area']}}</p>
-                        <p>今いるパート:{{$user_info['band_part']}}</p>
-                        <p>曲のジャンル:{{$user_info['category']}}</p>
-                        <p>カバーorオリジナル:{{$user_info['style']}}</p>
+                    @if(!empty($band_info))
+                        <p>募集しているパート: {{App\Models\Utilities::PART[$band_info->want_part] }}</p>
+                    @else
+                        <p>募集しているパート:</p>
+                    @endif
+                    @if(!empty($band_info))
+                        <p>主な活動地域: {{App\Models\Utilities::AREA[$band_info->area] }}</p>
+                    @else
+                        <p>主な活動地域:</p>
+                    @endif
+                    @if(!empty($band_info))
+                        <p>今いるパート: {{$band_info['band_part']}}</p>
+                    @else
+                        <p>今いるパート:</p>
+                    @endif
+                    @if(!empty($band_info))
+                        <p>曲のジャンル: {{App\Models\Utilities::CATEGORY[$band_info->category] }}</p>
+                    @else
+                        <p>曲のジャンル:</p>
+                    @endif
+                    @if(!empty($band_info))
+                        <p>カバーorオリジナル: {{App\Models\Utilities::STYLE[$band_info->style] }}</p>
+                    @else
+                        <p>カバーorオリジナル:</p>
+                    @endif
                     </div>
                     <a href=""><button>編集する</button></a>
                 </div>

@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PersonInfo extends Model
+class BandInfo extends Model
 {
     use HasFactory;
     /**
      * 主キー
      */
     protected $primaryKey = 'user_id';
-    protected $table = "person_info";
+    protected $table = "band_info";
     public $incrementing = false;
 }
