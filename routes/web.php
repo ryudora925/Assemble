@@ -48,6 +48,7 @@ Route::get('search',function(){
     return view('search');
 });
 
+//ユーザ一覧
 Route::get('/player',[PlayerController::class,'player']);
 
 Route::post('/user/profile', [UserController::class, 'store'])->name('profile');
