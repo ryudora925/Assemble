@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+//use App\Http\Controllers\profile_edit_Controller;
 use App\Http\Controllers\PlayerController;
 
 /*
@@ -62,3 +63,5 @@ Route::get('/registerBand', [UserController::class, 'registerBand']);
 Route::post('/savePerson', [UserController::class, 'savePerson'])->name('savePerson');
 Route::post('/saveBand', [UserController::class, 'saveBand'])->name('saveBand');
 
+Route::get('/profile_edit', [profile_edit_Controller::class, 'index'])->name('profile_edit');
+Route::post('/profile_edit_store', [profile_edit_Controller::class, 'profile_edit_store'])->name('profile_edit_store');
