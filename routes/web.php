@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\profile_edit_Controller;
+//use App\Http\Controllers\profile_edit_Controller;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +32,25 @@ Route::get('complete',function(){
     return view('complete');
 });
 
-Route::get('profile',function(){
-    return view('profile');
-});
+//Route::get('profile',function(){
+//    return view('profile');
+//});
+Route::get('profile',[UserController::class,'index'])->name('profile.index');
 
 Route::get('profile-band',function(){
     return view('profile-band');
 });
+
+Route::get('search-band',function(){
+    return view('search-band');
+});
+
+Route::get('search',function(){
+    return view('search');
+});
+
+//ユーザ一覧
+Route::get('/player',[PlayerController::class,'player']);
 
 Route::post('/user/profile', [UserController::class, 'store'])->name('profile');
 

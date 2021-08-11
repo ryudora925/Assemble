@@ -12,19 +12,13 @@
     <body>
         <div id="full-screen">
             <div class="signin text-center">
-                <h1>Assemble</h1>
+                <div class="welcome-title">
+                    <h1>Assemble</h1>
+                </div>
                 <h2>Assembleにログイン</h2>
 
                 <main class="form-signin">
                     
-                    {{--
-                    <form action="{{ route('login') }}" method="POST">
-                        @csrf
-                        <input type="email" class="form-control" name="email" placeholder="メールアドレス">
-                        <input type="password" class="form-control" name="password" placeholder="パスワード">
-                        <button>ログイン</button>
-                    </form>
-                    --}}    
                     <form action="/login" method="POST">
                         @csrf
                         <input type="email" class="form-control" name="email" placeholder="メールアドレス">
@@ -38,5 +32,4 @@
             </div>
         </div>
     </body>
-
 </html>

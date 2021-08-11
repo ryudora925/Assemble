@@ -9,8 +9,11 @@
         <meta name="description" content="プロフィール画面">
     </head>
 
-    <body>
-        <h1>Assemble</h1>
+    <body><!--個人でログイン-->
+        <header class="title">
+            <h1>Assemble</h1>
+            <p>マイページ</p>
+        </header>
 
         <div class="main">
             <!--サイドメニュー-->
@@ -19,19 +22,19 @@
                     <!--マイページ-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="#">マイページ</a>
+                            <a href="/profile">マイページ</a>
                         </li>
                     </div>
                     <!--一覧-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="">一覧</a>
+                            <a href="/player">一覧</a>
                         </li>
                     </div>
                     <!--絞り込み-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="">絞り込み</a>
+                            <a href="/search-band">絞り込み</a>
                         </li>
                     </div>
                     <!--やりとり中-->
@@ -50,15 +53,35 @@
                 </div>
                 <!--名前、自己紹介文-->
                 <div class="myself">
-                    <p class="name">名前: Matsuhashi Saneto</p>
-                    <p class="intro">岐阜県の岐阜市に住んでいます。</p>
+                    <p class="name">名前: {{$user_info['name']}}</p>
+                    <p class="intro">{{$person_info['introduction']}}</p>
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
-                        <p>パート:</p>
-                        <p>楽器経歴:</p>
-                        <p>居住地:</p>
-                        <p>性別:</p>
-                        <p>やりたいジャンル:</p>
+                        @if(!empty($person_info))
+                            <p>パート: {{App\Models\Utilities::PART[$person_info->part] }}</p>
+                        @else
+                            <p>パート: </p>
+                        @endif
+                        @if(!empty($person_info))
+                            <p>楽器経歴: {{App\Models\Utilities::YEAR[$person_info->year] }}</p>
+                        @else
+                            <p>楽器経歴: </p>
+                        @endif
+                        @if(!empty($person_info))
+                            <p>居住地: {{App\Models\Utilities::AREA[$person_info->area] }}</p>
+                        @else
+                            <p>居住地: </p>
+                        @endif
+                        @if(!empty($person_info))
+                            <p>性別: {{App\Models\Utilities::GENDER[$person_info->gender] }}</p>
+                        @else
+                            <p>性別: </p>
+                        @endif
+                        @if(!empty($person_info))
+                            <p>やりたいジャンル: {{App\Models\Utilities::CATEGORY[$person_info->category] }}</p>
+                        @else
+                            <p>やりたいジャンル: </p>
+                        @endif
                     </div>
                     <a href=""><button>編集する</button></a>
                 </div>

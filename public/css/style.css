@@ -3,21 +3,53 @@
 */
 body{
     margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'MS Sans Serif';
 }
 
-h1{
-    text-align: center;
-    padding-top: 15px;
+.title{
     margin-top: 0;
     border-bottom: 1px solid rgba(0,0,0,.5);
     border-width: medium;
     margin-bottom: 0;
-    font-size: 40px;
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title p{
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+
+.title a:hover{
+    color: #196989;
+}
+
+.title h1{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1%;
+    text-align: left;
+    font-size: 30px;
+}
+
+.welcome-title{
+    margin-top: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    border-width: medium;
+}
+
+.welcome-title h1{
+    margin-top: 0;
+    padding-top: 3px;
+    margin-bottom: 0;
+    font-size: 30px;
 }
 
 .text-center h2{
-    padding-top: 30px;
+    margin-top: 40px;
+    padding-top: 8px;
     text-align: center;
 }
 
@@ -30,9 +62,10 @@ h1{
 ログイン、新規登録共通
 **/
 #full-screen{
-    background-image: url(../images/4.webp);
-    min-height: 100vh;
+    background-position: bottom;
     background-size: cover;
+    background-image: url(../images/8.jpeg);
+    height: 100vh;
 }
 
 /*
@@ -48,6 +81,10 @@ h1{
 .signin .form-signin a{
     text-decoration: none;
     color: #000;
+}
+
+.signin .form-signin a:hover{
+    color: #196989;
 }
 
 .signin .form-signin .form-control{
@@ -101,7 +138,7 @@ h1{
 サイドメニュー
 */
 .side{
-    width: 12%;
+    min-width: 12%;
     border-right: 1px solid rgba(0,0,0,.5);
     height: 50%;
 }
@@ -123,55 +160,53 @@ h1{
 
 .main .side .nav-item a{
     text-decoration: none;
-    color: #432;
+    color: #000;
 }
 
 .main .side .nav-item a:hover{
-    color: #0db;
+    color: #196989;
 }
 
 /*
 プロフィール
 */
 .main .profile-area{
-    display: flex;
     width: calc(100% - 12%);
 }
 
 .main .profile-icon{
-    width: 20%;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .main .profile-icon img{
-    max-width: 50%;
-    margin-left: 20%;
-    margin-top: 20%;
-    padding: 5%;
+    width: 20%;
     border: 1px solid #000;
     border-radius: 50%;
 }
 
 .main .profile-area .myself{
     margin-top: 0;
-    width: calc(100% - 20%);
     text-align: center;
 }
 
 .main .profile-area .myself .name{
     margin: 20px 15px 10px 0;
     font-size: 30px;
+    text-align: center;
 }
 
 .main .profile-area .myself .intro{
-    margin: 0 15px 15px 0;
+    margin: 0 20%;
     padding: 5px 5px 10% 5px;
     border: solid 1px #000;
-    border-radius: 15px;
+    border-radius: 20px;
+    text-align: left;
 }
 
 .main .profile-area .myself .details{
-    width: 100%;
     margin-top: 60px;
+    margin-left: 20%;
 }
 
 .main .profile-area .myself .details p{
@@ -185,4 +220,99 @@ h1{
     width: 100px;
     height: 50px;
     text-decoration: none;
+}
+
+.main .profile-area button{
+    margin-bottom: 10px;
+    width: 15%;
+}
+
+/*
+個人でログインしている時
+絞り込み検索画面バンド探し
+*/
+.search-band{
+    width: calc(100% - 12%);
+    margin-top: 30px;
+    text-align: center;
+}
+
+.search-band .search{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 18px;
+}
+
+.search-band .search select{
+    margin-top: 0;
+    margin-bottom: 15px;
+    height: 40px;
+    width: 25%;
+}
+
+.search-band .narrow{
+    text-align: center;
+    margin-top: 40px;
+    height: 40px;
+}
+
+/*
+バンドでログインしている時
+絞り込み検索画面個人探し
+*/
+.search-individual{
+    width: calc(100% - 12%);
+    margin-top: 30px;
+    text-align: center;
+}
+
+.search-individual .search{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 18px;
+}
+
+.search-individual .search input{
+    margin-left: 10px;
+}
+
+.search-individual .search select{
+    margin-top: 0;
+    margin-bottom: 15px;
+    height: 40px;
+    width: 25%;
+}
+
+.search-individual .narrow{
+    text-align: center;
+    margin-top: 40px;
+    height: 40px;
+}
+
+/*
+一覧
+*/
+.content{
+    width: calc(100% - 12%);
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.grid .item{
+    margin-top: 60px;
+}
+
+.grid .item p{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.grid .item img{
+    width: 200px;
+    height: 200px;
 }
