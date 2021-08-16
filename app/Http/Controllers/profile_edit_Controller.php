@@ -19,7 +19,11 @@ class profile_edit_Controller extends Controller
     
     public function index(Request $request)
     { 
-        return view('/profile_edit');
+        // ログインしているユーザー情報を渡す
+        $user = \Auth::user();
+        // ユーザー情報一覧を取得
+        $person_info = profile_edit::where('user_id' , $user['id']) -> first();
+        return view('/profile_edit' , compact('user', 'person_info' ));
     }
 
     public function profile_edit_store(Request $request)
@@ -36,9 +40,9 @@ class profile_edit_Controller extends Controller
             'area' => $posts['area'],
             'gender' => $posts['gender'],
             'song' => $posts['song'],
-            'category' => $posts['category']
+            'category' => $posts['category'],
+            'introduction' => $posts['introduction']
             ]
-            // 'introduction' => 'song' => $posts['introduction']
         );
             return redirect('profile');
     }

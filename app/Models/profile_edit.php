@@ -9,6 +9,6 @@ class profile_edit extends Model
 {
     use HasFactory;
     protected $table = 'person_info';
-    protected $fillable = ['user_id', 'gender', 'part', 'year', 'area', 'song', 'category'];
+    protected $fillable = ['user_id', 'gender', 'part', 'year', 'area', 'song', 'category', 'introduction'];
     protected $primaryKey = 'user_id';
 }
