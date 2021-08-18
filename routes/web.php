@@ -37,7 +37,7 @@ Route::get('complete',function(){
 //});
 Route::get('profile',[UserController::class,'index'])->name('profile.index');
 
-Route::get('/others-profile/{id}',[UserController::class,'others_index'])->name('others-profile.index');
+Route::get('/other-profile/{id}',[UserController::class,'others_index'])->name('others-profile.index');
 
 Route::get('search-band',function(){
     return view('search-band');
