@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-//use App\Http\Controllers\profile_edit_Controller;
+use App\Http\Controllers\profile_edit_Controller;
 use App\Http\Controllers\PlayerController;
 
 /*
@@ -37,9 +37,7 @@ Route::get('complete',function(){
 //});
 Route::get('profile',[UserController::class,'index'])->name('profile.index');
 
-Route::get('profile-band',function(){
-    return view('profile-band');
-});
+Route::get('/others-profile/{id}',[UserController::class,'others_index'])->name('others-profile.index');
 
 Route::get('search-band',function(){
     return view('search-band');
@@ -58,10 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/registerPerson', [UserController::class, 'registerPerson']);
-Route::get('/registerBand', [UserController::class, 'registerBand']);
-Route::post('/savePerson', [UserController::class, 'savePerson'])->name('savePerson');
-Route::post('/saveBand', [UserController::class, 'saveBand'])->name('saveBand');
+
 
 Route::get('/profile_edit', [profile_edit_Controller::class, 'index'])->name('profile_edit');
 Route::post('/profile_edit_store', [profile_edit_Controller::class, 'profile_edit_store'])->name('profile_edit_store');
