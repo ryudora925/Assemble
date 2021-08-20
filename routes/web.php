@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 //use App\Http\Controllers\profile_edit_Controller;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,13 @@ Route::get('complete',function(){
     return view('complete');
 });
 
-//Route::get('profile',function(){
-//    return view('profile');
-//});
+//ログアウト画面へ
+Route::get('/logout',[LogoutController::class,'logout']);
+
+/*Route::get('/logout',function(){
+    return view('/logout');
+});*/
+
 Route::get('profile',[UserController::class,'index'])->name('profile.index');
 
 Route::get('profile-band',function(){

@@ -12,7 +12,7 @@
     <body><!--個人でログインしている時-->
         <header class="title">
             <h1>Assemble</h1>
-            <p>絞り込み</p>
+            <p><a href="/logout">ログアウトする</a></p>
         </header>
 
         <div class="main">
