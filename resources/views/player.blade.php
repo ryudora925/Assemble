@@ -12,7 +12,7 @@
     <body><!--バンドでログインしている時-->
         <header class="title">
             <h1>Assemble</h1>
-            <p>ログアウト</p>
+            <p><a href="/logout">ログアウトする</a></p>
         </header>
 
         <div class="main">
@@ -22,7 +22,7 @@
                     <!--マイページ-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="/profile-band">マイページ</a>
+                            <a href="/profile">マイページ</a>
                         </li>
                     </div>
                     <!--一覧-->
