@@ -52,8 +52,7 @@ class PlayerController extends Controller
 
         //dd($players, $players->first(), $players->first()->PersonInfo);
         return view('player',[
-            "players" => $players,
-            "userid" => $userid
+            "players" => $players
         ]);
     }
 }
