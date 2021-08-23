@@ -30,9 +30,10 @@ class UserController extends Controller
     {
         $user_id = Auth::id();
         $user_info = Auth::user();
-        //dd($user_info->band_flag);
+        //dd($user_info);
         if($user_info->band_flag == 1){
-            $band_info = BandInfo::select('*')->find($user_id);
+            $band_info = BandInfo::find($user_id);
+            //dd($band_info);
             return view('profile-band',['user_info' => $user_info,'band_info' => $band_info]);
         }else{
             $person_info =  PersonInfo::select('*')->find($user_id);
@@ -41,11 +42,25 @@ class UserController extends Controller
         }
     }
 
-    //public function savePerson(Request $request) {
-    //    Fight::crete([
-    //        'name' => $request->name,
-    //    ])
-    //    return redirect;
-    //}
+    public function others_index($id)
+    {
+        $user_info = User::find($id);
 
+        if($user_info->band_flag == 1){
+            $others_info = BandInfo::find($id);
+            //dd($others_info);
+            return view('other-profile-band',['user_info' => $user_info,'band_info' => $others_info]);
+        }else{
+            $others_info = PersonInfo::find($id);
+            return view('other-profile',['user_info' => $user_info,'person_info' => $others_info]);
+        }
+    }
+
+    /*public function savePerson(Request $request) {
+        Fight::crete([
+            'name' => $request->name,
+        ])
+        return redirect;
+    }
+    */
 }

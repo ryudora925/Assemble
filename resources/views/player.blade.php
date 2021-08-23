@@ -51,7 +51,7 @@
                 @foreach($players as $player)
                     <div class="item">
                         <p>名前:{{ $player->name }}</p>
-                        <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
+                        <a href="/other-profile/{{ $player->id }}"><img src="/storage/{{ $player->icon }}" alt=""></a>
                         @if($player->PersonInfo->part)
                         <p>パート:{{ App\Models\Utilities::PART[$player->PersonInfo->part] }}</p>
                         @else
