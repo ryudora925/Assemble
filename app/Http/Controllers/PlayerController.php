@@ -7,14 +7,18 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Models\User;
 use App\Models\PersonInfo;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 
 class PlayerController extends Controller
 {
     //
     public function player(Request $request){
+        //ログインユーザidを取得
+        $userid = Auth::id();
         $players = User::select('name','icon','id')->with('PersonInfo')->get();
-        $sql = User::select('name','icon','id')->with('PersonInfo');
+        $sql = User::where('id','!=',$userid)->select('name','icon','id')->with('PersonInfo');
+
 
         //エリア絞り込み
         if(isset($request->area) && strlen($request->area) > 0){
@@ -48,7 +52,8 @@ class PlayerController extends Controller
 
         //dd($players, $players->first(), $players->first()->PersonInfo);
         return view('player',[
-            "players" => $players
+            "players" => $players,
+            "userid" => $userid
         ]);
     }
 }
