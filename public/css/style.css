@@ -321,3 +321,27 @@ body{
     width: 200px;
     height: 200px;
 }
+
+/*ページネーション*/
+.pagination{
+    list-style: none;
+    margin-top: 2%;
+    padding-top: 1%;
+    border-top: 0.5px solid rgba(0,0,0,.5);
+    border-width: medium;
+}
+
+.pagination a{
+    text-decoration: none;
+    color: #000;
+}
+
+.pagination a:hover{
+    color: #196989;
+}
+
+.pagination li{
+    display: inline;
+    font-size: 22px;
+    padding-right: 1%;
+}

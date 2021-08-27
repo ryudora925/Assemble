@@ -12,7 +12,7 @@
     <body><!--バンドでログインしている時-->
         <header class="title">
             <h1>Assemble</h1>
-            <p><a href="/logout">ログアウトする</a></p>
+            <p>ログアウト</p>
         </header>
 
         <div class="main">
@@ -22,7 +22,7 @@
                     <!--マイページ-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="/profile">マイページ</a>
+                            <a href="/profile-band">マイページ</a>
                         </li>
                     </div>
                     <!--一覧-->
@@ -51,7 +51,7 @@
                 @foreach($players as $player)
                     <div class="item">
                         <p>名前:{{ $player->name }}</p>
-                        <a href="/other-profile/{{ $player->id }}"><img src="/storage/{{ $player->icon }}" alt=""></a>
+                        <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
                         @if($player->PersonInfo->part)
                         <p>パート:{{ App\Models\Utilities::PART[$player->PersonInfo->part] }}</p>
                         @else
@@ -65,6 +65,9 @@
                     </div>
                 @endforeach
                 </div>
+                @if(strlen($players->appends(request()->input())->links()) > 9)
+                    {{ $players->appends(request()->input())->links('pagination::default') }}
+                @endif
             </div>
         </div>
     </body>
