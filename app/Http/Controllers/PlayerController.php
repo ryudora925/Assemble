@@ -48,7 +48,7 @@ class PlayerController extends Controller
             });
         }
 
-        $players = $sql->get();
+        $players = $sql->paginate(9);
 
         //dd($players, $players->first(), $players->first()->PersonInfo);
         return view('player',[
