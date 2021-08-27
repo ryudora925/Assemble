@@ -41,6 +41,7 @@ Route::get('/logout',[LogoutController::class,'logout']);
 });*/
 
 Route::get('profile',[UserController::class,'index'])->name('profile.index');
+Route::get('profile-band',[UserController::class,'index'])->name('profile.index');
 
 Route::get('/other-profile/{id}',[UserController::class,'others_index'])->name('others-profile.index');
 
@@ -65,3 +66,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/profile_edit', [profile_edit_Controller::class, 'index'])->name('profile_edit');
 Route::post('/profile_edit_store', [profile_edit_Controller::class, 'profile_edit_store'])->name('profile_edit_store');
+Route::get('/profile-band_edit', [profile_edit_Controller::class, 'index'])->name('band_edit');
+Route::post('/profile-band_edit_store', [profile_edit_Controller::class, 'band_edit_store'])->name('profile-band_edit_store');
