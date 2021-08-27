@@ -12,7 +12,7 @@
     <body><!--バンドでログイン-->
         <header class="title">
             <h1>Assemble</h1>
-            <p>マイページ</p>
+            <p><a href="/logout">ログアウトする</a></p>
         </header>
         <div class="main">
             <!--サイドメニュー-->
