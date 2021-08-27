@@ -21,7 +21,7 @@
                     <!--マイページ-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="/profile-band">マイページ</a>
+                            <a href="/profile">マイページ</a>
                         </li>
                     </div>
                     <!--一覧-->
