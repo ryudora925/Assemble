@@ -54,9 +54,8 @@
                     <p class="name">名前: {{$user['name']}}</p>
                     <form method="POST" action="{{ route('profile_edit_store') }}" >
                         @csrf
-                        <p>
-                            <textarea class="intro" name='introduction'>{{$person_info['introduction']}}</textarea>
-                        </p>
+                        <textarea class="intro-edit" name='introduction'>{{$person_info['introduction']}}</textarea>
+                        
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
                         

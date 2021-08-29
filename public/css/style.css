@@ -209,6 +209,18 @@ body{
     text-align: left;
 }
 
+.main .profile-area .intro-edit{
+    width: 59%;
+    height: 24px;
+    margin: 0 20%;
+    padding: 5px 5px 10% 5px;
+    border: solid 1px #000;
+    border-radius: 20px;
+    text-align: left;
+    font-family: 'MS Sans Serif';
+    font-size: 16px;
+}
+
 .main .profile-area .myself .details{
     margin-top: 60px;
     margin-left: 20%;
