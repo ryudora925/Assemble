@@ -12,7 +12,7 @@
     <body><!--バンドでログインしている時-->
         <header class="title">
             <h1>Assemble</h1>
-            <p>ログアウト</p>
+            <p><a href="/logout">ログアウトする</a></p>
         </header>
 
         <div class="main">

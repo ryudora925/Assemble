@@ -46,9 +46,10 @@
                 </ul>
             </div>
 
-            <!--バンドでログインしていて、個人を探す-->
+            <!--絞り込み-->
             <div class="search-individual">
                 <form action="/player" method="GET">
+                @if(Auth::user()->band_flag === 1)
                     <!--個人探し-->
                     <div class="search">
                         <label for="part">探しているパート</label><br>
@@ -135,6 +136,48 @@
                         <input type="radio" name="gender" value="1" id="gender">男性
                         <input type="radio" name="gender" value="2" id="gender">女性
                     </div>
+                @else
+                    <!--バンド探し-->
+                    <div class="search">
+                        <label for="SearchPart">募集しているパート</label><br>
+                        <select name="SearchPart" id="SearchPart">
+                            <option value="">選択して下さい</option>
+                            <option value="">ギター</option>
+                            <option value="">アコースティックギター</option>
+                            <option value="">ベース</option>
+                            <option value="">ドラム</option>
+                            <option value="">ボーカル</option>
+                            <option value="">キーボード</option>
+                        </select>
+                    </div>
+
+                    <div class="search">
+                        <label for="ActivePlace">バンドの活動地域</label><br>
+                        <select name="ActivePlace" id="ActivePlace">
+                            <option value="">選択して下さい</option>
+                            <option value="">北海道</option>
+                            <option value="">東北</option>
+                            <option value="">関東</option>
+                            <option value="">中部</option>
+                            <option value="">近畿</option>
+                            <option value="">中国</option>
+                            <option value="">四国</option>
+                            <option value="">九州・沖縄</option>
+                        </select>
+                    </div>
+
+                    <div class="search">
+                        <label for="career">バンド歴</label><br>
+                        <select name="carrer" id="carrer">
+                            <option value="">個人を探したい場合に選択</option>
+                            <option value="">1〜3年</option>
+                            <option value="">3〜5年</option>
+                            <option value="">5〜8年</option>
+                            <option value="">8〜10年</option>
+                            <option value="">10年以上</option>
+                        </select>
+                    </div>
+                @endif
 
                     <!--絞り込み情報送信-->
                     <div class="narrow">

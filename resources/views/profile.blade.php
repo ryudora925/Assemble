@@ -34,7 +34,7 @@
                     <!--絞り込み-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="/search-band">絞り込み</a>
+                            <a href="/search">絞り込み</a>
                         </li>
                     </div>
                     <!--やりとり中-->
