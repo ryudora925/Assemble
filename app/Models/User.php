@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(PersonInfo::class,'user_id','id')->withDefault();
     }
+
+    public function BandInfo()
+    {
+        return $this->hasOne(BandInfo::class,'user_id','id')->withDefault();
+    }
 }

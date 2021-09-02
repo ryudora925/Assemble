@@ -50,17 +50,39 @@
                 <div class="grid">
                 @foreach($players as $player)
                     <div class="item">
-                        <p>名前:{{ $player->name }}</p>
-                        <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
-                        @if($player->PersonInfo->part)
-                        <p>パート:{{ App\Models\Utilities::PART[$player->PersonInfo->part] }}</p>
+                        @if($player->band_flag === 0)
+                            <p>名前:{{ $player->name }}</p>
                         @else
-                        <p>パート:</p>
+                            <p>バンド名:{{ $player->name }}</p>
                         @endif
-                        @if($player->PersonInfo->category)
-                        <p>やりたいジャンル:{{ App\Models\Utilities::CATEGORY[$player->PersonInfo->category] }}</p>
+                        <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
+
+                        @if($player->band_flag === 0)
+                            @if($player->PersonInfo->part)
+                            <p>パート:{{ App\Models\Utilities::PART[$player->PersonInfo->part] }}</p>
+                            @else
+                            <p>パート:</p>
+                            @endif
                         @else
-                        <p>やりたいジャンル:</p>
+                            @if($player->BandInfo->want_part)
+                            <p>募集パート:{{ App\Models\Utilities::PART[$player->BandInfo->want_part] }}</p>
+                            @else
+                            <p>募集パート:</p>
+                            @endif
+                        @endif
+
+                        @if($player->band_flag === 0)
+                            @if($player->PersonInfo->category)
+                            <p>やりたいジャンル:{{ App\Models\Utilities::CATEGORY[$player->PersonInfo->category] }}</p>
+                            @else
+                            <p>やりたいジャンル:</p>
+                            @endif
+                        @else
+                            @if($player->BandInfo->style)
+                            <p>ジャンル:{{ App\Models\Utilities::CATEGORY[$player->BandInfo->category] }}</p>
+                            @else
+                            <p>ジャンル:</p>
+                            @endif
                         @endif
                     </div>
                 @endforeach
