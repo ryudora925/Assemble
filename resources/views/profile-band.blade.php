@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/bmesse.css')}}">
         <title>プロフィール画面</title>
         <meta name="description" content="プロフィール画面">
     </head>
@@ -84,6 +85,44 @@
                     </div>
                     <a href=""><button>編集する</button></a>
                     
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div id="your_container">
+            <div id="bms_messages_container">
+                <div id="bms_chat_header">
+                    <div id="bms_chat_user_status">
+                        <div id="bms_status_icon">●</div>
+                        <div id="bms_chat_user_name">{{$user_info['name']}}</div>
+                    </div>
+                    <div id="bms_chat_otuser_status">
+                        <div id="bms_status_icon">●</div>
+                        <div id="bms_chat_user_name">相手のユーザー名</div>
+                    </div>
+                </div>
+                <div id="bms_send">
+                    <textarea id="bms_send_message"></textarea>
+                    <div id="bms_send_btn">送信</div>
+                </div>
+                <div id="bms_messages">
+                    <div class="bms_message bms_left">
+                        <div class="bms_message_box">
+                            <div class="bms_message_content">
+                                <div class="bms_message_text">テスト1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bms_clear"></div>
+                    <div class="bms_message bms_right">
+                        <div class="bms_message_box">
+                            <div class="bms_message_content">
+                                <div class="bms_message_text">テスト2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bms_clear"></div>
                 </div>
             </div>
         </div>
