@@ -55,7 +55,7 @@
                         @else
                             <p>バンド名:{{ $player->name }}</p>
                         @endif
-                        <a href=""><img src="/storage/{{ $player->icon }}" alt=""></a>
+                        <a href="/other-profile/{{ $player->id }}"><img src="/storage/{{ $player->icon }}" alt=""></a>
 
                         @if($player->band_flag === 0)
                             @if($player->PersonInfo->part)
