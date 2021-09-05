@@ -83,6 +83,7 @@
                     @endif
                     </div>
                     <a href=""><button>編集する</button></a>
+                    
                 </div>
             </div>
         </div>
