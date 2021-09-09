@@ -70,14 +70,13 @@
                     @else
                     <img src="{{ asset('storage/user/default.jpeg') }}" alt="" id="MyIcon">
                     @endif
-                    <form method="POST" action="{{ route('profile_edit_store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('band_edit_store') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="icon" id="icon">
                 </div>
                 <!--名前、自己紹介文-->
                 <div class="myself">
-                    <p class="name">バンド名: {{$user['name']}}</p>
-                    <form method="POST" action="{{ route('profile-band_edit_store') }}" >
+                <p class="name">バンド名:<input type="text" name="name" value="{{$user['name']}}"></p>
                         @csrf
                         <textarea class="intro-edit" name='introduction'>{{$band_info['introduction']}}</textarea>
                         
@@ -120,6 +119,7 @@
                     </p>
                     </div>
                     <button type="submit">更新する</button></a>
+                    </form>
                 </div>
             </div>
         </div>
