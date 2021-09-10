@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\profile_edit;
 use App\Models\band_edit;
+use App\Models\User;
 
 class profile_edit_Controller extends Controller
 {
@@ -35,8 +36,21 @@ class profile_edit_Controller extends Controller
     public function profile_edit_store(Request $request)
     {
         $posts = $request->all();
+        $name = $request->name;
+        if($request->icon){
+            $path = $request->icon->store('usericon','public');
+        }else{
+            $path = null;
+        }
+        
+
         // データの確認をするデバッグ関数
         // dd(\Auth::id());
+        
+        //アイコンの登録、名前の変更
+        Auth::user()->name = $name;
+        Auth::user()->icon = $path;
+        Auth::user()->save();
 
         //POSTされた値をデータベースへ挿入
         $profile_edit = profile_edit::updateOrCreate(
@@ -58,8 +72,20 @@ class profile_edit_Controller extends Controller
 public function band_edit_store(Request $request)
     {
         $posts = $request->all();
+        $name = $request->name;
+        if($request->icon){
+            $path = $request->icon->store('usericon','public');
+        }else{
+            $path = null;
+        }
+
         // データの確認をするデバッグ関数
         // dd(\Auth::id());
+
+        //アイコンの登録、名前の変更
+        Auth::user()->name = $name;
+        Auth::user()->icon = $path;
+        Auth::user()->save();
 
         //POSTされた値をデータベースへ挿入
         $band_edit = band_edit::updateOrCreate(

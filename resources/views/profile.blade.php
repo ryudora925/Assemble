@@ -50,7 +50,11 @@
             <div class="profile-area">
                 <!--プロフィール画像-->
                 <div class="profile-icon">
-                    <img src="images/1.webp" alt="">
+                    @if($user_info->icon)
+                    <img src="{{ asset('storage/'.$user_info->icon) }}" alt="">
+                    @else
+                    <img src="{{ asset('storage/user/default.jpeg') }}" alt="">
+                    @endif
                 </div>
                 <!--名前、自己紹介文-->
                 <div class="myself">
@@ -84,7 +88,7 @@
                             <p>やりたいジャンル: </p>
                         @endif
                     </div>
-                    <a href=""><button>編集する</button></a>
+                    <a href="/profile_edit"><button>編集する</button></a>
                 </div>
             </div>
         </div>
