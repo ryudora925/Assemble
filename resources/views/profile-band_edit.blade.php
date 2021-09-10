@@ -82,41 +82,41 @@
                         
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
-                    <p>募集しているパート: 
-                        <select name="want_part" size="1">
-                            @foreach( App\Models\Utilities::PART as $key => $want_part)
-                                <option value="{{$key}}" @if($key == $band_info['want_part'] )selected @endif>{{$want_part}}</option>
-                            @endforeach
-                        </select>
-                    </p>
-                    <p>主な活動地域: 
-                        <select name="area" size="1">
-                            @foreach( App\Models\Utilities::AREA as $key => $area)
-                                <option value="{{$key}}" @if($key == $band_info['area'] )selected @endif>{{$area}}</option>
-                            @endforeach
-                        </select>
-                    </p>
-                    <p>今いるパート: 
-                        <select name="band_part" size="1">
-                            @foreach( App\Models\Utilities::PART as $key => $band_part)
-                                <option value="{{$key}}" @if($key == $band_info['band_part'] )selected @endif>{{$band_part}}</option>
-                            @endforeach
-                        </select>
-                    </p>
-                    <p>曲のジャンル: 
-                        <select name="category" size="1">
-                            @foreach( App\Models\Utilities::CATEGORY as $key => $category)
-                                <option value="{{$key}}" @if($key == $band_info['category'] )selected @endif>{{$category}}</option>
-                            @endforeach
-                        </select>
-                    </p>
-                    <p>カバーorオリジナル: 
-                        <select name="style" size="1">
-                            @foreach( App\Models\Utilities::STYLE as $key => $style)
-                                <option value="{{$key}}" @if($key == $band_info['style'] )selected @endif>{{$style}}</option>
-                            @endforeach
-                        </select>
-                    </p>
+                        <p>募集しているパート: 
+                            <select name="want_part" size="1">
+                                @foreach( App\Models\Utilities::PART as $key => $want_part)
+                                    <option value="{{$key}}" @if($key == $band_info['want_part'] )selected @endif>{{$want_part}}</option>
+                                @endforeach
+                            </select>
+                        </p>
+                        <p>主な活動地域: 
+                            <select name="area" size="1">
+                                @foreach( App\Models\Utilities::AREA as $key => $area)
+                                    <option value="{{$key}}" @if($key == $band_info['area'] )selected @endif>{{$area}}</option>
+                                @endforeach
+                            </select>
+                        </p>
+                        <p>今いるパート: 
+                            <select name="band_part" size="1">
+                                @foreach( App\Models\Utilities::PART as $key => $band_part)
+                                    <option value="{{$key}}" @if($key == $band_info['band_part'] )selected @endif>{{$band_part}}</option>
+                                @endforeach
+                            </select>
+                        </p>
+                        <p>曲のジャンル: 
+                            <select name="category" size="1">
+                                @foreach( App\Models\Utilities::CATEGORY as $key => $category)
+                                    <option value="{{$key}}" @if($key == $band_info['category'] )selected @endif>{{$category}}</option>
+                                @endforeach
+                            </select>
+                        </p>
+                        <p>カバーorオリジナル: 
+                            <select name="style" size="1">
+                                @foreach( App\Models\Utilities::STYLE as $key => $style)
+                                    <option value="{{$key}}" @if($key == $band_info['style'] )selected @endif>{{$style}}</option>
+                                @endforeach
+                            </select>
+                        </p>
                     </div>
                     <button type="submit">更新する</button></a>
                     </form>
