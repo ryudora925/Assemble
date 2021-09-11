@@ -57,7 +57,7 @@
                         @endif
 
                         @if($player->icon)
-                             <a href="/other-profile/{{ $player->id }}"><img src="{{ asset('/storage/user/'.$player->icon) }}" alt=""></a>
+                             <a href="/other-profile/{{ $player->id }}"><img src="{{ asset('/storage/'.$player->icon) }}" alt=""></a>
                         @else
                              <a href="/other-profile/{{ $player->id }}"><img src="{{ asset('/storage/user/default.jpeg') }}" alt=""></a>
                         @endif
