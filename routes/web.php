@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\profile_edit_Controller;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\chatlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +69,5 @@ Route::get('/profile_edit', [profile_edit_Controller::class, 'index'])->name('pr
 Route::post('/profile_edit_store', [profile_edit_Controller::class, 'profile_edit_store'])->name('profile_edit_store');
 Route::get('/profile-band_edit', [profile_edit_Controller::class, 'index'])->name('band_edit');
 Route::post('/profile-band_edit_store', [profile_edit_Controller::class, 'band_edit_store'])->name('profile-band_edit_store');
+
+Route::get('/chat_list',[chatlistController::class, 'index']);
