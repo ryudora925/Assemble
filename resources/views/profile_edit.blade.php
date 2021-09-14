@@ -5,12 +5,33 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <!--javascript 画像プレビュー-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script language="JavaScript">
+            $(function(){
+                $("[name='icon']").on('change', function (e) {
+
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $("#MyIcon").attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(e.target.files[0]);   
+
+                });
+            });
+        </script>
+
         <title>プロフィール編集画面</title>
         <meta name="description" content="プロフィール編集画面">
     </head>
 
     <body>
-        <h1>Assemble</h1>
+        <header class="title">
+            <h1>Assemble</h1>
+            <p><a href="/logout">ログアウトする</a></p>
+        </header>
 
         <div class="main">
             <!--サイドメニュー-->
@@ -19,19 +40,19 @@
                     <!--マイページ-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="#">マイページ</a>
+                            <a href="/profile">マイページ</a>
                         </li>
                     </div>
                     <!--一覧-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="">一覧</a>
+                            <a href="/player">一覧</a>
                         </li>
                     </div>
                     <!--絞り込み-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="">絞り込み</a>
+                            <a href="/search">絞り込み</a>
                         </li>
                     </div>
                     <!--やりとり中-->
@@ -47,12 +68,19 @@
                 
                 <!--プロフィール画像-->
                 <div class="profile-icon">
-                    <img src="images/1.webp" alt="">
+                    @if($user->icon)
+                    <img src="{{ asset('storage/'.$user->icon) }}" alt="" name="MyIcon" id="MyIcon">
+                    @else
+                    <img src="{{ asset('storage/user/default.jpeg') }}" alt="" id="MyIcon">
+                    @endif
+                    <form method="POST" action="{{ route('profile_edit_store') }}" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="icon" id="icon">
                 </div>
+
                 <!--名前、自己紹介文-->
                 <div class="myself">
-                    <p class="name">名前: {{$user['name']}}</p>
-                    <form method="POST" action="{{ route('profile_edit_store') }}" >
+                    <p class="name">名前:<input type="text" name="name" value="{{$user['name']}}"></p>
                         @csrf
                         <textarea class="intro-edit" name='introduction'>{{$person_info['introduction']}}</textarea>
                         
@@ -100,7 +128,8 @@
                             </select>
                         </p>
                     </div>
-                    <button type="submit">登録する</button></a>
+                    <button type="submit">更新する</button></a>
+                    </form>
                 </div>
             </div>
         </div>
