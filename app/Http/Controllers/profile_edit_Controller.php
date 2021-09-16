@@ -39,8 +39,7 @@ class profile_edit_Controller extends Controller
         $name = $request->name;
         if($request->icon){
             $path = $request->icon->store('usericon','public');
-        }else{
-            $path = null;
+            Auth::user()->icon = $path;
         }
         
 
@@ -49,7 +48,6 @@ class profile_edit_Controller extends Controller
         
         //アイコンの登録、名前の変更
         Auth::user()->name = $name;
-        Auth::user()->icon = $path;
         Auth::user()->save();
 
         //POSTされた値をデータベースへ挿入
