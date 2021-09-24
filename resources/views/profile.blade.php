@@ -83,6 +83,11 @@
                             <p>性別: </p>
                         @endif
                         @if(!empty($person_info))
+                            <p>好きな曲: {{ $person_info->song }}</p>
+                        @else
+                            <p>好きな曲: </p>
+                        @endif
+                        @if(!empty($person_info))
                             <p>やりたいジャンル: {{App\Models\Utilities::CATEGORY[$person_info->category] }}</p>
                         @else
                             <p>やりたいジャンル: </p>

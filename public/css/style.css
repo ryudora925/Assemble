@@ -63,6 +63,36 @@ body{
     width: 100%;
 }
 
+/*バリデーション
+*/
+.alert ul{
+    margin: 0;
+    padding: 0;
+}
+
+.alert li{
+    list-style: none;
+    color: red;
+}
+
+.profile-area .myself strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-area .myself .details strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-area .profile-icon strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
 /*
 ログイン、新規登録共通
 **/
