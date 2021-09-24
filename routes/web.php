@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\profile_edit_Controller;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\chatlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //マイページ編集クラス(個人)
 Route::post('/profile_edit_store', [profile_edit_Controller::class, 'profile_edit_store'])->name('profile_edit_store');
+
 //マイページ編集クラス(バンド)
 Route::post('/band_edit_store', [profile_edit_Controller::class, 'band_edit_store'])->name('band_edit_store');
 
@@ -74,3 +76,5 @@ Route::middleware(['auth'])->group(function(){
     //自分以外の登録者のマイページ画面
     Route::get('/other-profile/{id}',[UserController::class,'others_index'])->name('others-profile.index');
 });
+//チャットリスト
+Route::get('/chat_list',[chatlistController::class, 'index']);
