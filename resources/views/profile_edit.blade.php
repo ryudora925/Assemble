@@ -74,15 +74,24 @@
                     <img src="{{ asset('storage/user/default.jpeg') }}" alt="" id="MyIcon">
                     @endif
                     <form method="POST" action="{{ route('profile_edit_store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <input type="file" name="icon" id="icon">
+                    @csrf
+                    <input type="file" name="icon" id="icon">
+                    @if($errors->first('icon'))
+                        <strong class="validation">{{ $errors->first('icon') }}</strong>
+                    @endif
                 </div>
 
                 <!--名前、自己紹介文-->
                 <div class="myself">
                     <p class="name">名前:<input type="text" name="name" value="{{$user['name']}}"></p>
+                        @if($errors->first('name'))
+                            <strong class="validation">{{ $errors->first('name') }}</strong>
+                        @endif
                         @csrf
                         <textarea class="intro-edit" name='introduction'>{{$person_info['introduction']}}</textarea>
+                        @if($errors->first('introduction'))
+                            <strong class="validation">{{ $errors->first('introduction') }}</strong>
+                        @endif
                         
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
@@ -93,6 +102,9 @@
                                     <option value="{{$key}}" @if($key == $person_info['part'] )selected @endif>{{$part}}</option>
                                 @endforeach
                             </select>
+                            @if($errors->first('part'))
+                                <strong class="validation">{{ $errors->first('part') }}</strong>
+                            @endif
 
                         </p>
                         <p>楽器経歴:
@@ -101,6 +113,9 @@
                                     <option value="{{$key}}" @if($key == $person_info['year'] )selected @endif>{{$year}}</option>
                                 @endforeach
                             </select>
+                            @if($errors->first('year'))
+                                <strong class="validation">{{ $errors->first('year') }}</strong>
+                            @endif
                         </p>
                         <!-- 47都道府県 -->
                         <p>居住地:
@@ -109,6 +124,9 @@
                                     <option value="{{$key}}" @if($key == $person_info['area'] )selected @endif>{{$area}}</option>
                                 @endforeach
                             </select>
+                            @if($errors->first('area'))
+                                <strong class="validation">{{ $errors->first('area') }}</strong>
+                            @endif
                         </p>
                         <p>性別:
                             <select name="gender" size="1">
@@ -116,9 +134,15 @@
                                     <option value="{{$key}}" @if($key == $person_info['gender'] )selected @endif>{{$gender}}</option>
                                 @endforeach
                             </select>
+                            @if($errors->first('gender'))
+                                <strong class="validation">{{ $errors->first('gender') }}</strong>
+                            @endif
                         </p>
                         <p>好きな曲:
-                            <input type="text" name="song" value='{{$person_info['song']}}'>
+                            <input type="text" name="song" value="{{$person_info['song']}}">
+                            @if($errors->first('song'))
+                                <strong class="validation">{{ $errors->first('song') }}</strong>
+                            @endif
                         </p>
                         <p>やりたいジャンル:
                             <select name="category" size="1">
@@ -126,6 +150,9 @@
                                     <option value="{{$key}}" @if($key == $person_info['category'] )selected @endif>{{$category}}</option>
                                 @endforeach
                             </select>
+                            @if($errors->first('category'))
+                                <strong class="validation">{{ $errors->first('category') }}</strong>
+                            @endif
                         </p>
                     </div>
                     <button type="submit">更新する</button></a>

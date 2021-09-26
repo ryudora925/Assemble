@@ -16,9 +16,24 @@ class UserController extends Controller
     {
         $user = new User;
 
+        //validation
+        $validate = $request->validate([
+            'name' => ['bail', 'required', 'string', 'unique:users'],
+            'email' => ['bail', 'email', 'unique:users'],
+            'password' => ['bail', 'required', 'confirmed']
+        ]);
+
+        /*$rules = [
+            'name' => ['required', 'string'],
+            'email' => ['email'],
+            'password' => ['required', 'confirmed']
+        ];
+        $this->validate($request, $rules);*/
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->password2 = request('password_confirmation');
         $user->band_flag = $request->band_flag;
         
         $user->save();
