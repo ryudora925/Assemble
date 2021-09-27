@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/bmesse.css')}}">
         <title>プロフィール画面</title>
         <meta name="description" content="プロフィール画面">
     </head>
@@ -34,7 +35,7 @@
                     <!--絞り込み-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="/search-band">絞り込み</a>
+                            <a href="/search">絞り込み</a>
                         </li>
                     </div>
                     <!--やりとり中-->
@@ -92,6 +93,34 @@
                             <p>やりたいジャンル: </p>
                         @endif
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div id="your_container">
+            <div id="bms_messages_container">
+                <form action="{{route('other_chat_store')}}" method="POST">  
+                    @csrf
+                    <input type ="hidden" name = "write_user_id" value ="{{$user_info->id}}">
+                    <div id="bms_send">
+                        <textarea id="bms_send_message" name = "message"></textarea>
+                        <input type ="submit" id="bms_send_btn" value ="送信">
+                    </div>
+                </form>
+                <div id="bms_messages">
+                    @foreach($messages as $message)
+                    <div class = "message_box">
+                        <div class="chat-icon">
+                            <img src="/images/1.webp" alt="">
+                        </div>
+                        <div class = "chat_content">
+                            <div class="bms_chat_user_name">{{$message->user['name']}}</div>
+                                <div class="bms_message_text">{{$message['message']}}</div>
+                        </div>
+                        <div class="bms_clear"></div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
