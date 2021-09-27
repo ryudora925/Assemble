@@ -10,11 +10,15 @@
     </head>
 
     <body>
-        <div class="complete text-center">
-            <h1>Assemble</h1>
-            <h2>登録が完了しました</h2>
+        <div id="full-screen">
+            <div class="complete text-center">
+                <div class="welcome-title">
+                    <h1>Assemble</h1>
+                </div>
+                <h2>登録が完了しました</h2>
 
-            <p><a href="/">ログインする</a></p>
+                <p><a href="/">ログインする</a></p>
+            </div>
         </div>
     </body>
 

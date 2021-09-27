@@ -167,6 +167,11 @@ body{
 .text-center a{
     text-decoration: none;
     font-size: 20px;
+    color: black;
+}
+
+.text-center a:hover{
+    color: #196989;
 }
 
 /*

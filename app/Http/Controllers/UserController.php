@@ -23,17 +23,9 @@ class UserController extends Controller
             'password' => ['bail', 'required', 'confirmed']
         ]);
 
-        /*$rules = [
-            'name' => ['required', 'string'],
-            'email' => ['email'],
-            'password' => ['required', 'confirmed']
-        ];
-        $this->validate($request, $rules);*/
-
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->password2 = request('password_confirmation');
         $user->band_flag = $request->band_flag;
         
         $user->save();
@@ -70,12 +62,4 @@ class UserController extends Controller
             return view('other-profile',['user_info' => $user_info,'person_info' => $others_info]);
         }
     }
-
-    /*public function savePerson(Request $request) {
-        Fight::crete([
-            'name' => $request->name,
-        ])
-        return redirect;
-    }
-    */
 }
