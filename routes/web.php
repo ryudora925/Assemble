@@ -76,6 +76,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/other-profile/{id}',[UserController::class,'others_index'])->name('others-profile.index');
 
     //チャットリスト
-    Route::get('/chat=list', [chatlistController::class, 'index']);
+    Route::get('/chat_list', [chatlistController::class, 'index']);
 
 });
