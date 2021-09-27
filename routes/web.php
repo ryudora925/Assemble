@@ -6,6 +6,7 @@ use App\Http\Controllers\profile_edit_Controller;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\chatlistController;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::post('/post_chat', [ChatController::class, 'chat_store'])->name('chat_store');
+Route::post('/post_other_chat', [ChatController::class, 'other_chat_store'])->name('other_chat_store');
 
 //middlewareグループ化 ログイン後放置でログイン画面にリダイレクト
 Route::middleware(['auth'])->group(function(){
