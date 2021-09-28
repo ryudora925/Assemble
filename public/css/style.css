@@ -340,6 +340,7 @@ body{
 
 /* チャット一覧画面 */
 .chatlist{
+    
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
@@ -349,7 +350,6 @@ body{
 }
 
 .chatlist img{
-    display: inline-block;
     vertical-align: middle;
     width: 100px;
     height: 100px;
@@ -364,6 +364,11 @@ body{
 
 .chatlist .chatinfo p{
     margin: 2px 5px;
+}
+
+.chatlist .chatinfo .area{
+    font-size: small;
+    margin-bottom: 8px;
 }
 
 .chatlist .chatinfo .update-at{
