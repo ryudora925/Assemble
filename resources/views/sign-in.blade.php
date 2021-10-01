@@ -17,11 +17,22 @@
                 </div>
                 <h2>Assembleにログイン</h2>
 
+                <!--validation-->
+                @if($errors->any())
+                <div class='alert alert-danger'>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li><strong>{{ $error }}</strong></li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
                 <main class="form-signin">
                     
                     <form action="/login" method="POST">
                         @csrf
-                        <input type="email" class="form-control" name="email" placeholder="メールアドレス">
+                        <input type="email" class="form-control" name="email" placeholder="メールアドレス" value="{{ old('email') }}">
                         <input type="password" class="form-control" name="password" placeholder="パスワード">
                         <button>ログイン</button>
                     </form>

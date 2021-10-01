@@ -16,6 +16,17 @@
                     <h1>Assemble</h1>    
                 </div>
                 <h2>新規登録(個人)</h2>
+            
+            <!--validation-->
+            @if($errors->any())
+            <div class='alert alert-danger'>
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li><strong>{{ $error }}</strong></li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
             <main class="form-signup">
                 <form action="{{route('profile')}}" method="POST">
@@ -23,7 +34,7 @@
                     <input type="text" class="form-control" name="name" placeholder="名前">
                     <input type="email" class="form-control" name="email" placeholder="メールアドレス">
                     <input type="password" class="form-control" name="password" placeholder="パスワード">
-                    <input type="password" class="form-control" name="password2" placeholder="パスワードの再入力">
+                    <input type="password" class="form-control" name="password_confirmation" placeholder="パスワードの再入力">
                     <input type="hidden" name="band_flag" value=0>
                     <button>登録する</button>
                 </form>

@@ -63,6 +63,36 @@ body{
     width: 100%;
 }
 
+/*バリデーション
+*/
+.alert ul{
+    margin: 0;
+    padding: 0;
+}
+
+.alert li{
+    list-style: none;
+    color: red;
+}
+
+.profile-area .myself strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-area .myself .details strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-area .profile-icon strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
 /*
 ログイン、新規登録共通
 **/
@@ -137,6 +167,11 @@ body{
 .text-center a{
     text-decoration: none;
     font-size: 20px;
+    color: black;
+}
+
+.text-center a:hover{
+    color: #196989;
 }
 
 /*
@@ -343,7 +378,7 @@ body{
     
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 0px;
     width: 50%;
     height: fit-content;
     outline: solid 1px #525252;

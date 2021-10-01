@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Models\PersonInfo;
 use App\Models\BandInfo;
+use App\Models\Chat;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Utilities;
@@ -15,6 +16,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User;
+
+        //validation
+        $validate = $request->validate([
+            'name' => ['bail', 'required', 'string', 'unique:users'],
+            'email' => ['bail', 'email', 'unique:users'],
+            'password' => ['bail', 'required', 'confirmed']
+        ]);
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -31,36 +39,32 @@ class UserController extends Controller
         $user_id = Auth::id();
         $user_info = Auth::user();
         //dd($user_info);
+        $chats = Chat::where("write_user_id","=",$user_id )->with("user")->orderByDesc('id')->get();
+        //dd($chats);
+
         if($user_info->band_flag == 1){
             $band_info = BandInfo::find($user_id);
             //dd($band_info);
-            return view('profile-band',['user_info' => $user_info,'band_info' => $band_info]);
+            return view('profile-band',['user_info' => $user_info,'band_info' => $band_info, 'messages' => $chats]);
         }else{
             $person_info =  PersonInfo::select('*')->find($user_id);
             //dd($user_id,$user_info->part,$band_info);
-            return view('profile',['user_info' => $user_info,'person_info' => $person_info]);
+            return view('profile',['user_info' => $user_info,'person_info' => $person_info , 'messages' => $chats]);
         }
     }
 
     public function others_index($id)
     {
         $user_info = User::find($id);
-
+        $chats = Chat::where("write_user_id","=",$id )->with("user")->orderByDesc('id')->get();
         if($user_info->band_flag == 1){
             $others_info = BandInfo::find($id);
             //dd($others_info);
-            return view('other-profile-band',['user_info' => $user_info,'band_info' => $others_info]);
+        
+            return view('other-profile-band',['user_info' => $user_info,'band_info' => $others_info , 'messages' => $chats]);
         }else{
             $others_info = PersonInfo::find($id);
-            return view('other-profile',['user_info' => $user_info,'person_info' => $others_info]);
+            return view('other-profile',['user_info' => $user_info,'person_info' => $others_info , 'messages' => $chats ]);
         }
     }
-
-    /*public function savePerson(Request $request) {
-        Fight::crete([
-            'name' => $request->name,
-        ])
-        return redirect;
-    }
-    */
 }

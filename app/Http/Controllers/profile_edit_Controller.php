@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use App\Models\Utilities;
 use App\Models\profile_edit;
 use App\Models\band_edit;
 use App\Models\User;
@@ -35,12 +37,24 @@ class profile_edit_Controller extends Controller
 
     public function profile_edit_store(Request $request)
     {
+        //validation
+        $validate = $request->validate([
+            'icon' => ['mimes:jpeg,png,jpg,gif', 'max:10240'],
+            'name' => ['required', 'max:64'],
+            'introduction' => ['required', 'max:500'],
+            'part' => [Rule::in(array_keys(\App\Models\Utilities::PART))],
+            'year' => [Rule::in(array_keys(\App\Models\Utilities::YEAR))],
+            'area' => [Rule::in(array_keys(\App\Models\Utilities::AREA))],
+            'gender' => [Rule::in(array_keys(\App\Models\Utilities::GENDER))],
+            'song' => ['required', 'max:64'],
+            'category' => [Rule::in(array_keys(\App\Models\Utilities::CATEGORY))]
+        ]);
+
         $posts = $request->all();
         $name = $request->name;
         if($request->icon){
             $path = $request->icon->store('usericon','public');
-        }else{
-            $path = null;
+            Auth::user()->icon = $path;
         }
         
 
@@ -49,7 +63,6 @@ class profile_edit_Controller extends Controller
         
         //アイコンの登録、名前の変更
         Auth::user()->name = $name;
-        Auth::user()->icon = $path;
         Auth::user()->save();
 
         //POSTされた値をデータベースへ挿入
@@ -71,12 +84,23 @@ class profile_edit_Controller extends Controller
 
 public function band_edit_store(Request $request)
     {
+        //validation
+        $validate = $request->validate([
+            'icon' => ['mimes:jpeg,png,jpg,gif', 'max:10240'],
+            'name' => ['required', 'max:64'],
+            'introduction' => ['required', 'max:500'],
+            'want_part' => [Rule::in(array_keys(\App\Models\Utilities::PART))],
+            'area' => [Rule::in(array_keys(\App\Models\Utilities::AREA))],
+            'band_part' => ['max:64'],
+            'category' => [Rule::in(array_keys(\App\Models\Utilities::CATEGORY))],
+            'style' => [Rule::in(array_keys(\App\Models\Utilities::STYLE))]
+        ]);
+
         $posts = $request->all();
         $name = $request->name;
         if($request->icon){
             $path = $request->icon->store('usericon','public');
-        }else{
-            $path = null;
+            Auth::user()->icon = $path;
         }
 
         // データの確認をするデバッグ関数
@@ -84,7 +108,6 @@ public function band_edit_store(Request $request)
 
         //アイコンの登録、名前の変更
         Auth::user()->name = $name;
-        Auth::user()->icon = $path;
         Auth::user()->save();
 
         //POSTされた値をデータベースへ挿入
