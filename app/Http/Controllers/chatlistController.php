@@ -14,6 +14,7 @@ class chatlistController extends Controller
     { 
         $user = \Auth::user();
         $chat_list = chatlist::where('talk_list.user_id' , $user['id'])->join('users', 'users.id', '=', 'talk_list.write_user_id')
+
             ->join('band_info', 'band_info.user_id', '=', 'talk_list.write_user_id')
             ->join('chat', 'chat.write_user_id', '=', 'talk_list.write_user_id')
             ->select('talk_list.updated_at as chat_time', 'users.name', 'band_info.area','chat.message')->get();
@@ -27,6 +28,10 @@ class chatlistController extends Controller
         //     $chat_list->join('person_info', 'person_info.user_id', '=', 'talk_list.write_user_id')->join('chat', 'chat.write_user_id', '=', 'talk_list.write_user_id')
         //     ->select('talk_list.updated_at as chat_time', 'users.name', 'band_info.area','chat.message')->get();
         // }
+
+        //->join('band_info', 'band_info.user_id', '=', 'talk_list.write_user_id')
+        //->select('talk_list.updated_at as chat_time', 'users.name', 'band_info.area')->get();
+
         return view('/chat_list' ,  compact('chat_list' , 'user'));
         
         
