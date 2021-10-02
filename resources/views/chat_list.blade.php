@@ -45,19 +45,19 @@
                     </div>
                 </ul>
             </div>
-        
-            <!-- やり取り中のトーク一覧 -->
-            @foreach($chat_list as $key => $chat)
-            <div class="chatlist">
-                <a href=""><img src="/storage/" alt=""></a>
-                <div class="chatinfo">
-                    <p class="name">{{ $chat->name }}</p>
-                    <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->area] }}</p>
-                    <p class="update-at">{{ $chat->chat_time }}</p>
-                    <p class="messsage">メッセージ本文がここに入ります</p>
-                </div>
+        </div>
+
+        <!-- やり取り中のトーク一覧 -->
+        @foreach($chat_list as $key => $chat)
+        <div class="chatlist">
+            <a href=""><img src="/storage/" alt=""></a>
+            <div class="chatinfo">
+                <p class="name">{{ $chat->name }}</p>
+                <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->area] }}</p>
+                <p class="update-at">{{ $chat->chat_time }}</p>
+                <p class="messsage">{{ $chat->message }}</p>
             </div>
-            @endforeach
-            </div>
+        </div>
+        @endforeach
     </body>
 </html>
