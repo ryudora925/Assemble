@@ -5,47 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <title>一覧画面</title>
         <meta name="description" content="一覧画面">
     </head>
 
-    <body><!--バンドでログインしている時-->
-        <header class="title">
-            <h1>Assemble</h1>
-            <p><a href="/logout">ログアウトする</a></p>
-        </header>
+    <body>
+        <!--ヘッダー、タイトル-->
+        @include('layouts/header')
 
         <div class="main">
             <!--サイドメニュー-->
-            <div class="side">
-                <ul class="nav">
-                    <!--マイページ-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/profile">マイページ</a>
-                        </li>
-                    </div>
-                    <!--一覧-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/player">一覧</a>
-                        </li>
-                    </div>
-                    <!--絞り込み-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/search">絞り込み</a>
-                        </li>
-                    </div>
-                    <!--やりとり中-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="">やり取り中</a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
+            @include('layouts/side')
 
+            <!--ユーザ一覧-->
             <div class="content">
                 <div class="grid">
                 @foreach($players as $player)
@@ -59,7 +32,7 @@
                         @if($player->icon)
                              <a href="/other-profile/{{ $player->id }}"><img src="{{ asset('/storage/'.$player->icon) }}" alt=""></a>
                         @else
-                             <a href="/other-profile/{{ $player->id }}"><img src="{{ asset('/storage/user/default.jpeg') }}" alt=""></a>
+                             <a href="/other-profile/{{ $player->id }}"><img src="{{ asset('/images/default.jpeg') }}" alt=""></a>
                         @endif
 
                         @if($player->band_flag === 0)
@@ -78,7 +51,7 @@
 
                         @if($player->band_flag === 0)
                             @if($player->PersonInfo->category)
-                            <p>やりたいジャンル:{{ App\Models\Utilities::CATEGORY[$player->PersonInfo->category] }}</p>
+                            <p>やりたいジャンル:<span class="br_">{{ App\Models\Utilities::CATEGORY[$player->PersonInfo->category] }}</span></p>
                             @else
                             <p>やりたいジャンル:</p>
                             @endif
@@ -91,11 +64,18 @@
                         @endif
                     </div>
                 @endforeach
+                <div class="item banner-item">
+                    <!--仮バナー-->
+                    <p>バナー</p>
+                    <img src="/images/0.jpeg" alt="">
                 </div>
+                </div>
+                <!--ページネーション-->
                 @if(strlen($players->appends(request()->input())->links()) > 9)
                     {{ $players->appends(request()->input())->links('pagination::default') }}
                 @endif
             </div>
         </div>
+        <script src="{{ asset('/js/side.js') }}"></script>
     </body>
 </html>

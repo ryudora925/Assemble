@@ -31,10 +31,10 @@
             <main class="form-signup">
                 <form action="{{route('profile')}}" method="POST">
                     @csrf
-                    <input type="text" class="form-control" name="name" placeholder="バンド名">
-                    <input type="email" class="form-control" name="email" placeholder="メールアドレス">
-                    <input type="password" class="form-control" name="password" placeholder="パスワード">
-                    <input type="password" class="form-control" name="password_confirmation" placeholder="パスワードの再入力">
+                    <div><input type="text" class="form-control" name="name" placeholder="バンド名"></div>
+                    <div><input type="email" class="form-control" name="email" placeholder="メールアドレス"></div>
+                    <div><input type="password" class="form-control" name="password" placeholder="パスワード"></div>
+                    <div><input type="password" class="form-control" name="password_confirmation" placeholder="パスワードの再入力"></div>
                     <input type="hidden" name="band_flag" value=1>
                     <button>登録する</button>
                 </form>

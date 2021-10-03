@@ -6,45 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" href="{{asset('css/bmesse.css')}}">
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <title>プロフィール画面</title>
         <meta name="description" content="プロフィール画面">
     </head>
 
-    <body><!--個人でログイン-->
-        <header class="title">
-            <h1>Assemble</h1>
-            <p><a href="/logout">ログアウトする</a></p>
-        </header>
+    <body>
+        <!--ヘッダー、タイトル-->
+        @include('layouts/header')
+        
         <div class="main">
             <!--サイドメニュー-->
-            <div class="side">
-                <ul class="nav">
-                    <!--マイページ-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/profile">マイページ</a>
-                        </li>
-                    </div>
-                    <!--一覧-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/player">一覧</a>
-                        </li>
-                    </div>
-                    <!--絞り込み-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/search">絞り込み</a>
-                        </li>
-                    </div>
-                    <!--やりとり中-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="">やり取り中</a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
+            @include('layouts/side')
             <!--メイン-->
             <div class="profile-area">
                 <!--プロフィール画像-->
@@ -52,7 +25,7 @@
                     @if($user_info->icon)
                     <img src="{{ asset('storage/'.$user_info->icon) }}" alt="">
                     @else
-                    <img src="{{ asset('storage/user/default.jpeg') }}" alt="">
+                    <img src="{{ asset('/images/default.jpeg') }}" alt="">
                     @endif
                 </div>
                 <!--名前、自己紹介文-->
@@ -124,5 +97,6 @@
                 </div>
             </div>
         </div>
+        <script src="{{ asset('/js/side.js') }}"></script>
     </body>
 </html>
