@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <!--javascript 画像プレビュー-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script language="JavaScript">
@@ -26,41 +27,13 @@
         <meta name="description" content="プロフィール画面">
     </head>
 
-    <body><!--バンドでログイン-->
-        <header class="title">
-            <h1>Assemble</h1>
-            <p><a href="/logout">ログアウトする</a></p>
-        </header>
+    <body>
+        <!--ヘッダー、タイトル-->
+        @include('layouts/header')
+
         <div class="main">
             <!--サイドメニュー-->
-            <div class="side">
-                <ul class="nav">
-                    <!--マイページ-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/profile-band">マイページ</a>
-                        </li>
-                    </div>
-                    <!--一覧-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/player">一覧</a>
-                        </li>
-                    </div>
-                    <!--絞り込み-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="/search">絞り込み</a>
-                        </li>
-                    </div>
-                    <!--やりとり中-->
-                    <div class="list">
-                        <li class="nav-item">
-                            <a href="">やり取り中</a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
+            @include('layouts/side')
             <!--メイン-->
             <div class="profile-area">
                 <!--プロフィール画像-->
@@ -68,11 +41,11 @@
                     @if($user->icon)
                     <img src="{{ asset('storage/'.$user->icon) }}" alt="" name="MyIcon" id="MyIcon">
                     @else
-                    <img src="{{ asset('storage/user/default.jpeg') }}" alt="" id="MyIcon">
+                    <img src="{{ asset('/images/default.jpeg') }}" alt="" id="MyIcon">
                     @endif
                     <form method="POST" action="{{ route('band_edit_store') }}" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" name="icon" id="icon">
+                    <input type="file" name="icon" id="icon" class="file">
                     @if($errors->first('icon'))
                         <strong class="validation">{{ $errors->first('icon') }}</strong>
                     @endif
@@ -142,5 +115,6 @@
                 </div>
             </div>
         </div>
+        <script src="{{ asset('/js/side.js') }}"></script>
     </body>
 </html>

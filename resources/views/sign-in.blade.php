@@ -29,14 +29,13 @@
                 @endif
 
                 <main class="form-signin">
-                    
                     <form action="/login" method="POST">
                         @csrf
-                        <input type="email" class="form-control" name="email" placeholder="メールアドレス" value="{{ old('email') }}">
-                        <input type="password" class="form-control" name="password" placeholder="パスワード">
+                        <div><input type="email" class="form-control" name="email" placeholder="メールアドレス" value="{{ old('email') }}"></div>
+                        <div><input type="password" class="form-control" name="password" placeholder="パスワード"></div>
                         <button>ログイン</button>
                     </form>
-                    
+
                     <p><a href="/sign-up">ユーザ(個人)登録する</a></p>
                     <p><a href="/sign-up-band">ユーザ(バンド)登録する</a></p>
                 </main>
