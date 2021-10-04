@@ -46,7 +46,6 @@
                 </ul>
             </div>
         
-        
             <!-- やり取り中のトーク一覧 -->
             <div class="chatbox">
                 @foreach($chat_list as $key => $chat)
