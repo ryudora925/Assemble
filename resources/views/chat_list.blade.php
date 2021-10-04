@@ -40,24 +40,32 @@
                     <!--やりとり中-->
                     <div class="list">
                         <li class="nav-item">
-                            <a href="">やり取り中</a>
+                            <a href="/chat_list">やり取り中</a>
                         </li>
                     </div>
                 </ul>
             </div>
-        </div>
-            <!-- やり取り中のトーク一覧 -->
-            @foreach($chat_list as $key => $chat)
-            <div class="chatlist">
-                <a href=""><img src="/storage/" alt=""></a>
-                <div class="chatinfo">
-                    <p class="name">{{ $chat->name }}</p>
-                    <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->area] }}</p>
-                    <p class="update-at">{{ $chat->chat_time }}</p>
-                    <p class="messsage">{{ $chat->message }}</p>
-                </div>
-            </div>
-            @endforeach
         
+        
+            <!-- やり取り中のトーク一覧 -->
+            <div class="chatbox">
+                @foreach($chat_list as $key => $chat)
+                <div class="chatlist">
+                    <a href="/other-profile/{{ $chat->id }}"><img src="/storage/" alt=""></a>
+                    <div class="chatinfo">
+                        <a href="/other-profile/{{ $chat->id }}"><p class="name">{{ $chat->name }}</p></a>
+                        @if($chat->band_area)
+                        <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->band_area] }}</p>
+                        @else
+                        <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->person_area] }}</p>
+                        @endif
+                        <p class="update-at">{{ $chat->chat_time }}</p>
+                        <p class="messsage">{{ Str::limit($chat->message,50) }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        
+        </div>
     </body>
 </html>
