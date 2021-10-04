@@ -370,44 +370,51 @@ body{
 
 
 /* チャット一覧画面 */
-.chatlist{
-    
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    width: 50%;
-    height: fit-content;
-    outline: solid 1px #525252;
+.main .chatbox{
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
-.chatlist img{
+.main .chatbox .chatlist{
+    
+    /* margin-left: 20%;
+    margin-right: auto; */
+    margin-top: 0px;
+    width: 500px;
+    height: fit-content;
+    outline: solid 1px #525252;
+    
+    
+}
+
+.main .chatlist img{
     vertical-align: middle;
     width: 100px;
     height: 100px;
     margin: 15px;
 }
 
-.chatlist .chatinfo{
+.main .chatlist .chatinfo{
     display: inline-block;
     vertical-align: top;
     margin-top: 15px;
 }
 
-.chatlist .chatinfo p{
+.main .chatlist .chatinfo p{
     margin: 2px 5px;
 }
 
-.chatlist .chatinfo .area{
+.main .chatlist .chatinfo .area{
     font-size: small;
     margin-bottom: 8px;
 }
 
-.chatlist .chatinfo .update-at{
+.main .chatlist .chatinfo .update-at{
     font-size: small;
     margin-bottom: 8px;
 }
 
-.chatlist .chatinfo .messsage{
+.main .chatlist .chatinfo .messsage{
     font-size: small;
     color: rgb(128, 127, 127);
 }

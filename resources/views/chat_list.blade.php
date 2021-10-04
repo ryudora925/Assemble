@@ -15,7 +15,10 @@
         @include('layouts/header')
 
         <div class="main">
-            <!--サイドメニュー-->
+            <!--サイドメニュー-->                        <p class="messsage">{{ Str::limit($chat->message,50) }}</p>
+                    </div>
+                </div>
+                @endforeach
             @include('layouts/side')
 
         <!-- やり取り中のトーク一覧 -->
@@ -28,6 +31,7 @@
                 <p class="update-at">{{ $chat->chat_time }}</p>
                 <p class="messsage">{{ $chat->message }}</p>
             </div>
+        
         </div>
         @endforeach
         <script src="{{ asset('/js/side.js') }}"></script>
