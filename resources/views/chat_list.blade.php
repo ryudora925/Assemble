@@ -18,18 +18,18 @@
             <!--サイドメニュー-->
             @include('layouts/side')
 
-            <!-- やり取り中のトーク一覧 -->
-            
-            <div class="chatlist">    
-                <a href=""><img src="/storage/" alt=""></a>
-                <div class="chatinfo">
-                    <p class="name">タナカ</p>
-                    <p class="update-at">2021/09/11 16:03</p>
-                    <p class="messsage">メッセージ本文がここに入ります</p>
-                </div>
+        <!-- やり取り中のトーク一覧 -->
+        @foreach($chat_list as $key => $chat)
+        <div class="chatlist">
+            <a href=""><img src="/storage/" alt=""></a>
+            <div class="chatinfo">
+                <p class="name">{{ $chat->name }}</p>
+                <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->area] }}</p>
+                <p class="update-at">{{ $chat->chat_time }}</p>
+                <p class="messsage">{{ $chat->message }}</p>
             </div>
-            
         </div>
+        @endforeach
         <script src="{{ asset('/js/side.js') }}"></script>
     </body>
 </html>

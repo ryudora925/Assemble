@@ -49,7 +49,7 @@ class profile_edit_Controller extends Controller
             'song' => ['required', 'max:64'],
             'category' => [Rule::in(array_keys(\App\Models\Utilities::CATEGORY))]
         ]);
- 
+
         $posts = $request->all();
         $name = $request->name;
         if($request->icon){

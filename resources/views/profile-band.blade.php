@@ -80,7 +80,11 @@
                     @foreach($messages as $message)
                     <div class = "message_box">
                         <div class="chat-icon">
-                            <img src="images/1.webp" alt="">
+                            @if($message->user['icon'])
+                            <img src="{{ asset('storage/'.$message->user['icon'] )}}" alt="">
+                            @else
+                            <img src="{{ asset('storage/user/default.jpeg') }}" alt="">
+                            @endif
                         </div>
                         <div class = "chat_content">
                             <div class="bms_chat_user_name">{{$message->user['name']}}</div>
