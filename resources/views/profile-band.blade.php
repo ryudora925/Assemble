@@ -71,6 +71,16 @@
                 <form action="{{route('chat_store')}}" method="POST">  
                     @csrf
                     <input type ="hidden" name = "post_user_id" value = "{{Auth::id()}}">
+                    <!--validation-->
+                    @if($errors->any())
+                    <div class='alert alert-danger'>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li><strong>{{ $error }}</strong></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div id="bms_send">
                         <textarea id="bms_send_message" name = "message"></textarea>
                         <input type ="submit" id="bms_send_btn" value ="送信">

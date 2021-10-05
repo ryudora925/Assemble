@@ -9,11 +9,25 @@
 }
 
 @media screen and (max-width:480px){
-    #your_container{
+        #your_container{
         margin: 0;
         width: 100%;
+        }
+        
+        #bms_messages .chat-icon img{
+        width: 45px;
+        height: 45px;
+        background-size: cover;
+        }
+        
+        #bms_messages .chat-icon{
+        width: 12%;
+        }
+        /*チャット名前、コメント*/
+        #bms_messages .chat_content{
+        font-size: 13px;
+        }
     }
-}
 /* チャットの外側部分 */
 #bms_messages_container{
     height: 100%;
@@ -77,34 +91,35 @@
         padding: 20px;
     }
     /* メッセージ */
-    .chat-icon img{
-        width: 80px;
-        height: 80px;
-        border: 1px solid #000;
-        border-radius: 50%;
+.chat-icon img{
+    width: 6vw;
+    height: 6vw;
+    border: 1px solid #000;
+    border-radius: 50%;
     }
     .chat-icon{
-        float: left;
-        width: 10%;
-
+    float: left;
+    width: 7%;
+    
     }
     .chat_content{
-        margin-left: 10px;
-        float: left;
+    margin-left: 2vw;
+    float: left;
+    font-size: 1.5vw;
     }
     .bms_message_box {
-        color: #333;
-        background: #fff;
-        border: 2px solid #13178E;
-        border-radius: 30px 30px 30px 0px;
-        margin-right: 50px;
+    color: #333;
+    background: #fff;
+    border: 2px solid #13178E;
+    border-radius: 30px 30px 30px 0px;
+    margin-right: 50px;
     }
     .bms_message_text{
-        color: rgb(0, 0, 0);
-        background: #ffffff;
-        border: 2px solid #868686;
-        border-radius: 30px 30px 30px 0px;
-        margin-right: 50px;
+    color: rgb(0, 0, 0);
+    background: #ffffff;
+    border: 2px solid #868686;
+    border-radius: 2vw 2vw 2vw 0px;
+    margin-right: 50px;
     }
     /* 回り込みを解除 */
     .bms_clear {
@@ -152,7 +167,10 @@
         cursor: pointer;
     }
 
-
+    /*バリデーション*/
+    #your_container .alert{
+        text-align: center;
+    }
 
 
     

@@ -17,6 +17,12 @@ class ChatController extends Controller
 
     public function chat_store(Request $m_request)
     {
+        //validation
+        $validate = $m_request->validate([
+            'post_user_id' => ['exists:users,id'],
+            'message' => ['required', 'max:500']
+        ]);
+
         //dd($m_request);
         $chat = new Chat;
         $user_info = Auth::user();
@@ -32,6 +38,12 @@ class ChatController extends Controller
 
     public function other_chat_store(Request $m_request)
     {
+        //validation
+        $validate = $m_request->validate([
+            'write_user_id' => ['exists:users,id'],
+            'message' => ['required', 'max:500']
+        ]);
+        
         //dd($m_request);
         $chat = new Chat;
         $user_info = Auth::user();

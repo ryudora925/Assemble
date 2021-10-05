@@ -76,6 +76,16 @@
                 <form action="{{route('other_chat_store')}}" method="POST">  
                     @csrf
                     <input type ="hidden" name = "write_user_id" value ="{{$user_info->id}}">
+                    <!--validation-->
+                    @if($errors->any())
+                    <div class='alert alert-danger'>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li><strong>{{ $error }}</strong></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div id="bms_send">
                         <textarea id="bms_send_message" name = "message"></textarea>
                         <input type ="submit" id="bms_send_btn" value ="送信">
