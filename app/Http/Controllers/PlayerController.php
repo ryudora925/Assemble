@@ -63,9 +63,9 @@ class PlayerController extends Controller
         }
 
         //バンドの活動地域絞り込み
-        if(isset($request->area) && strlen($request->area) > 0){
+        if(isset($request->band_area) && strlen($request->band_area) > 0){
             $sql->whereHas('BandInfo', function (Builder $query) use ($request) {
-                $query->where('area','=',$request->area);
+                $query->where('area','=',$request->band_area);
             });
         }
 

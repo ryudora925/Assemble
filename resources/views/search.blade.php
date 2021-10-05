@@ -126,7 +126,7 @@
 
                     <div class="search">
                         <label for="area">バンドの活動地域</label><br>
-                        <select name="area" id="area">
+                        <select name="band_area" id="area">
                             <option value="">選択して下さい</option>
                             <option value="1">北海道</option>
                             <option value="2">青森県</option>
