@@ -45,6 +45,7 @@ Route::get('/logout',[LogoutController::class,'logout']);
 //ユーザ情報登録
 Route::post('/user/profile', [UserController::class, 'store'])->name('profile');
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
