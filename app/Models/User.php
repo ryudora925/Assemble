@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'band_flag',
     ];
 
     /**
@@ -58,4 +59,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function PersonInfo()
+    {
+        return $this->hasOne(PersonInfo::class,'user_id','id')->withDefault();
+    }
+
+    public function BandInfo()
+    {
+        return $this->hasOne(BandInfo::class,'user_id','id')->withDefault();
+    }
 }

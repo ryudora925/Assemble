@@ -14,10 +14,11 @@
     <body>
         <!--ヘッダー、タイトル-->
         @include('layouts/header')
-        
+
         <div class="main">
             <!--サイドメニュー-->
             @include('layouts/side')
+            
             <!--メイン-->
             <div class="profile-area">
                 <!--プロフィール画像-->
@@ -31,41 +32,35 @@
                 <!--名前、自己紹介文-->
                 <div class="myself">
                     <p class="name">名前: {{$user_info['name']}}</p>
-                    <p class="intro">{{$person_info['introduction']}}</p>
+                    <p class="intro">{{$band_info['introduction']}}</p>
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
-                        @if(!empty($person_info))
-                            <p>パート: {{App\Models\Utilities::PART[$person_info->part] }}</p>
+                        @if(!empty($band_info))
+                            <p>募集しているパート: {{App\Models\Utilities::PART[$band_info->want_part] }}</p>
                         @else
-                            <p>パート: </p>
+                            <p>募集しているパート:</p>
                         @endif
-                        @if(!empty($person_info))
-                            <p>楽器経歴: {{App\Models\Utilities::YEAR[$person_info->year] }}</p>
+                        @if(!empty($band_info))
+                            <p>主な活動地域: {{App\Models\Utilities::AREA[$band_info->area] }}</p>
                         @else
-                            <p>楽器経歴: </p>
+                            <p>主な活動地域:</p>
                         @endif
-                        @if(!empty($person_info))
-                            <p>居住地: {{App\Models\Utilities::AREA[$person_info->area] }}</p>
+                        @if(!empty($band_info))
+                            <p>今いるパート: {{$band_info['band_part']}}</p>
                         @else
-                            <p>居住地: </p>
+                            <p>今いるパート:</p>
                         @endif
-                        @if(!empty($person_info))
-                            <p>性別: {{App\Models\Utilities::GENDER[$person_info->gender] }}</p>
+                        @if(!empty($band_info))
+                            <p>曲のジャンル: {{App\Models\Utilities::CATEGORY[$band_info->category] }}</p>
                         @else
-                            <p>性別: </p>
+                            <p>曲のジャンル:</p>
                         @endif
-                        @if(!empty($person_info))
-                            <p>好きな曲: {{ $person_info->song }}</p>
+                        @if(!empty($band_info))
+                            <p>カバーorオリジナル: {{App\Models\Utilities::STYLE[$band_info->style] }}</p>
                         @else
-                            <p>好きな曲: </p>
-                        @endif
-                        @if(!empty($person_info))
-                            <p>やりたいジャンル: {{App\Models\Utilities::CATEGORY[$person_info->category] }}</p>
-                        @else
-                            <p>やりたいジャンル: </p>
+                            <p>カバーorオリジナル:</p>
                         @endif
                     </div>
-                    <a href="/profile_edit"><button>編集する</button></a>
                 </div>
             </div>
         </div>
@@ -73,9 +68,9 @@
         <br>
         <div id="your_container">
             <div id="bms_messages_container">
-                <form action="{{route('chat_store')}}" method="POST">  
+                <form action="{{route('other_chat_store')}}" method="POST">  
                     @csrf
-                    <input type ="hidden" name = "post_user_id" value = "{{Auth::id()}}">
+                    <input type ="hidden" name = "write_user_id" value ="{{$user_info->id}}">
                     <!--validation-->
                     @if($errors->any())
                     <div class='alert alert-danger'>

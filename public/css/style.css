@@ -2,25 +2,101 @@
 全体
 */
 body{
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
+    font-family: 'MS Sans Serif';
 }
 
-.text-center h1{
-    text-align: center;
-    margin-top: 15px;
-    border-bottom: black solid 1px;
+.title{
+    margin-top: 0;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    border-width: medium;
     margin-bottom: 0;
-    font-size: 40px;
+    padding-top: 0.8vw;
+}
+
+.title a{
+    text-decoration: none;
+    color: #000;
+}
+
+.title a:hover{
+    color: #196989;
+}
+
+.title h1{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.5vw;
+    text-align: center;
+}
+
+.welcome-title{
+    margin-top: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    border-width: medium;
+}
+
+.welcome-title h1{
+    margin-top: 0;
+    padding-top: 3px;
+    margin-bottom: 0;
+    font-size: 30px;
 }
 
 .text-center h2{
-    padding-top: 30px;
+    margin-top: 40px;
+    padding-top: 8px;
     text-align: center;
 }
 
 .main{
     display: flex;
+    width: 100%;
+}
+
+/*バリデーション
+*/
+.alert{
+    text-align: center;
+}
+
+.alert ul{
+    margin: 0;
+    padding: 0;
+}
+
+.alert li{
+    list-style: none;
+    color: red;
+}
+
+.profile-area .myself strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-area .myself .details strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-area .profile-icon strong.validation{
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ログイン、新規登録共通
+**/
+#full-screen{
+    background-position: bottom;
+    background-size: cover;
+    background-image: url(../images/8.png);
+    height: 100vh;
 }
 
 /*
@@ -28,13 +104,16 @@ body{
 */
 .signin .form-signin{
     text-align: center;
-    white-space: pre-line;
-    word-break: break-all;
     font-size: 15px;
 }
 
 .signin .form-signin a{
     text-decoration: none;
+    color: #000;
+}
+
+.signin .form-signin a:hover{
+    color: #196989;
 }
 
 .signin .form-signin .form-control{
@@ -46,6 +125,7 @@ body{
 
 .signin .form-signin button{
     font-size: 15px;
+    margin-bottom: 20px;
 }
 
 
@@ -54,7 +134,6 @@ body{
 */
 .signup .form-signup{
     text-align: center;
-    white-space: pre-line;
 }
 
 .signup .form-signup .form-control{
@@ -82,87 +161,485 @@ body{
 .text-center a{
     text-decoration: none;
     font-size: 20px;
+    color: black;
 }
 
-/*
-個人マイページ画面
-*/
-.main .side .nav-item{
-    list-style: none;
-}
-
-.main .side .nav-item a{
-    text-decoration: none;
+.text-center a:hover{
+    color: #196989;
 }
 
 /*
 サイドメニュー
 */
 .side{
-    width: 12%;
-    height: 100%;
+    width: 10%;
+    border-right: 1px solid rgba(0,0,0,.5);
+    height: 50%;
 }
 
-.side .flex-column{
+.side .nav{
     margin: 0 0 0 0;
     padding: 0;
+    font-size: 1.2vw;
 }
 
 .main .side .list{
     text-align: center;
     padding: 30% 0 30% 0;
-    border-bottom: solid 1px #000;
+    border-bottom: solid 1px rgba(0,0,0,.5);
 }
 
+.main .side .nav-item{
+    list-style: none;
+}
 
+.main .side .nav-item a{
+    text-decoration: none;
+    color: #000;
+}
+
+.main .side .nav-item a:hover{
+    color: #196989;
+}
 
 /*
 プロフィール
 */
 .main .profile-area{
-    display: flex;
-    width: 100%;
-    border-left: solid 1px #000;
+    width: calc(100% - 12%);
 }
 
 .main .profile-icon{
-    width:20%;
-    height: 190px;    
-    margin: 3% 3% 3% 40px;
-    border: solid 1px #000;
-    border-radius: 50%;
+    margin-top: 20px;
     text-align: center;
+}
+
+.main .profile-icon img{
+    width: 20vw;
+    height: 20vw;
+    border: 1px solid #000;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .main .profile-area .myself{
     margin-top: 0;
-    width: calc(100% - 20%);
     text-align: center;
 }
 
 .main .profile-area .myself .name{
-    margin: 20px 0 10px 0;
-    font-size: 30px;
+    margin: 2vw 1.5vw 1vw 0;
+    font-size: 3vw;
+    text-align: center;
 }
 
 .main .profile-area .myself .intro{
-    margin: 0 3px 15px 0;
+    margin: 0 20%;
     padding: 5px 5px 10% 5px;
     border: solid 1px #000;
+    border-radius: 20px;
+    text-align: left;
+    font-size: 1.5vw;
+}
+
+.main .profile-area .intro-edit{
+    width: 59%;
+    height: 24px;
+    margin: 0 20%;
+    padding: 5px 5px 10% 5px;
+    border: solid 1px #000;
+    border-radius: 20px;
+    text-align: left;
+    font-family: 'MS Sans Serif';
+    font-size: 16px;
 }
 
 .main .profile-area .myself .details{
-    width: 100%;
-    height: 60%;
+    margin-top: 6vw;
+    margin-left: 20%;
 }
 
 .main .profile-area .myself .details p{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
     text-align: left;
+    font-size: 1.3vw;
 }
 
-.main .profile-area .myself button{
-    width: 20%;
-    height: 10%;
+.main .profile-area .myself a{
+    width: 100px;
+    height: 50px;
+    text-decoration: none;
+}
+
+.main .profile-area button{
+    margin-bottom: 10px;
+    width: 6vw;
+    min-width: 80px;
+    font-size: 1vw;
+}
+
+/*
+個人でログインしている時
+絞り込み検索画面バンド探し
+*/
+.search-band{
+    width: calc(100% - 12%);
+    margin-top: 30px;
+    text-align: center;
+}
+
+.search-band .search{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 18px;
+}
+
+.search-band .search select{
+    margin-top: 0;
+    margin-bottom: 15px;
+    height: 40px;
+    width: 25%;
+}
+
+.search-band .narrow{
+    text-align: center;
+    margin-top: 40px;
+    height: 40px;
+}
+
+/*
+バンドでログインしている時
+絞り込み検索画面個人探し
+*/
+.search-individual{
+    width: calc(100% - 12%);
+    margin-top: 3vw;
+    text-align: center;
+}
+
+.search-individual .search{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2vw;
+}
+
+.search-individual .search input{
+    margin-left: 10px;
+}
+
+.search-individual .search select{
+    margin-top: 0;
+    margin-bottom: 1.5vw;
+    height: 2.5vw;
+    min-height: 30px;
+    width: 25%;
+    min-width: 40%;
+}
+
+.search-individual .narrow{
+    text-align: center;
+    margin-top: 2vw;
+    height: 40px;
+}
+
+/*
+一覧
+*/
+.content{
+    width: calc(100% - 12%);
+    margin-left: 8vw;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.grid .item{
+    margin-top: 5vw;
+}
+
+.grid .item p{
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 1.3vw;
+}
+
+.grid .item img{
+    width: 15vw;
+    height: 15vw;
+    object-fit: cover;
+}
+
+
+/* チャット一覧画面 */
+.main .chatbox{
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.main .chatbox .chatlist{
+    
+    /* margin-left: 20%;
+    margin-right: auto; */
+    margin-top: 0px;
+    width: 500px;
+    height: fit-content;
+    outline: solid 1px #525252;
+    
+    
+}
+
+.main .chatlist img{
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+}
+
+.main .chatlist .chatinfo{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+}
+
+.main .chatlist .chatinfo p{
+    margin: 2px 5px;
+}
+
+.main .chatlist .chatinfo .area{
+    font-size: small;
+    margin-bottom: 8px;
+}
+
+.main .chatlist .chatinfo .update-at{
+    font-size: small;
+    margin-bottom: 8px;
+}
+
+.main .chatlist .chatinfo .messsage{
+    font-size: small;
+    color: rgb(128, 127, 127);
+}
+
+
+
+/*ページネーション*/
+.pagination{
+    list-style: none;
+    margin-top: 2%;
+    padding-top: 1%;
+    border-top: 0.5px solid rgba(0,0,0,.5);
+    border-width: medium;
+}
+
+.pagination a{
+    text-decoration: none;
+    color: #000;
+}
+
+.pagination a:hover{
+    color: #196989;
+}
+
+.pagination li{
+    display: inline;
+    font-size: 22px;
+    padding-right: 1%;
+}
+
+
+.content .banner-item{
+    display: none;
+}
+
+/*レスポンシブ*/
+@media screen and (max-width:480px){
+    .content .banner-item{
+        display: block;
+    }
+
+    /*ヘッダー*/
+    .title h1{
+        font-size: 20px;
+    }
+
+        /* サイドメニュー、ハンバーガーメニュー */
+        .hamburger{
+            display: block;
+            position: fixed;
+            z-index: 3;
+            top: 9px;
+            right: 10px;
+            width: 30px;
+            cursor: pointer;
+            text-align: center;
+          }
+          
+        .hamburger span{
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            left: 6px;
+            background: #555;
+            -webkit-transition: 0.3s
+                ease-in-out;
+            -moz-transition: 0.3s
+                ease-in-out;
+            transition: 0.3s
+                ease-in-out;
+        }
+
+        .hamburger span:nth-child(1) {
+            top:0px;
+        }
+        .hamburger span:nth-child(2) {
+            top:8px;
+        }
+        .hamburger span:nth-child(3) {
+            top:16px;
+        }
+
+        .hamburger.open span:nth-child(1){
+            background: #fff;
+            top: 16px;
+            left: 6px;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform   : rotate(-45deg);
+            transform        : rotate(-45deg);
+        }
+        .hamburger.open span:nth-child(2),
+        .hamburger.open span:nth-child(3){
+            top: 16px;
+            background :#fff;
+            -webkit-transform: rotate(45deg);
+            -moz-transform   : rotate(45deg);
+            transform        : rotate(45deg);
+        }
+
+        .side{
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            right: -120%;
+            width: 100%;
+            height: auto;
+            background: rgba(0,0,0,0.8);
+            font-size: 16px;
+            text-align: center;
+            transition: .4s all;
+        }
+        .side.open{
+            right: 0px;
+        }
+        .side .nav{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height:100%;
+            flex-direction: column;
+            text-align: center;
+            /*justify-content: center;*/
+        }
+
+        .main .side .list{
+            padding: 20px;
+            border-bottom: 1px solid #fff;
+        }
+        .side .nav-item{
+            display: block;
+            font-size: 15px;
+        }
+        .main .side .nav-item a{
+            color: #fff;
+            text-decoration: none;
+        }
+
+    /*マイページ画面*/
+    .main{
+        display: block;
+    }
+    .main .profile-icon img{
+        width: 130px;
+        height: 130px;
+    }
+
+    .main .profile-area{
+        width: 100%;
+    }
+
+    .main .profile-area .myself .name{
+        font-size: 20px;
+    }
+
+    .main .profile-area .myself .intro{
+        padding: 10px 10px 20% 10px;
+    }
+
+    .main .profile-area .myself .details p{
+        font-size: 13px;
+    }
+
+    /*一覧画面*/
+    .content{
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        text-align: center;
+    }
+
+    .grid .item p{
+        font-size: 13px;
+    }
+
+    /*.grid .item .br_::before{
+        content:"\A";
+        white-space: pre;
+    }*/
+
+    .grid .item img{
+        width: 30vw;
+        height: 30vw;
+        object-fit: cover;
+    }
+
+    /*絞り込み画面*/
+    .search-individual{
+        width: 100%;
+        margin-top: 3vw;
+        text-align: center;
+    }
+
+    .search-individual .narrow{
+        height: 25px;
+    }
+
+
+
+    /*マイページ編集画面*/
+    .main .profile-area .intro-edit{
+        font-size: 10px;
+        width: 55%;
+    }
+
+    .main .profile-icon .file{
+        font-size: 10px;
+    }
+
+    /*ページネーション*/
+    .pagination{
+        list-style: none;
+        margin-top: 2%;
+        padding-top: 1%;
+        padding-left: 0;
+        border-top: 0.5px solid rgba(0,0,0,.5);
+        border-width: medium;
+    }
 }

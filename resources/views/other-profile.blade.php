@@ -18,6 +18,7 @@
         <div class="main">
             <!--サイドメニュー-->
             @include('layouts/side')
+            
             <!--メイン-->
             <div class="profile-area">
                 <!--プロフィール画像-->
@@ -65,7 +66,6 @@
                             <p>やりたいジャンル: </p>
                         @endif
                     </div>
-                    <a href="/profile_edit"><button>編集する</button></a>
                 </div>
             </div>
         </div>
@@ -73,9 +73,9 @@
         <br>
         <div id="your_container">
             <div id="bms_messages_container">
-                <form action="{{route('chat_store')}}" method="POST">  
+                <form action="{{route('other_chat_store')}}" method="POST">  
                     @csrf
-                    <input type ="hidden" name = "post_user_id" value = "{{Auth::id()}}">
+                    <input type ="hidden" name = "write_user_id" value ="{{$user_info->id}}">
                     <!--validation-->
                     @if($errors->any())
                     <div class='alert alert-danger'>

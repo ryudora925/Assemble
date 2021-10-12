@@ -1,0 +1,176 @@
+#your_container{
+    /* 
+    高さや幅を設定
+    */
+    margin-left: auto;
+    margin-right: calc(8%);
+    height:600px;
+    width: 70%;
+}
+
+@media screen and (max-width:480px){
+        #your_container{
+        margin: 0;
+        width: 100%;
+        }
+        
+        #bms_messages .chat-icon img{
+        width: 45px;
+        height: 45px;
+        background-size: cover;
+        }
+        
+        #bms_messages .chat-icon{
+        width: 12%;
+        }
+        /*チャット名前、コメント*/
+        #bms_messages .chat_content{
+        font-size: 13px;
+        }
+    }
+/* チャットの外側部分 */
+#bms_messages_container{
+    height: 100%;
+    width: 100%;
+    background-color: #eee;
+}
+
+/* ヘッダー部分*/
+#bms_chat_header {
+    padding: 10px;
+    font-size: 18px;
+    height: 34px;
+    background: #ddd;
+    border: 1px solid rgb(0, 0, 0);
+}
+    /* ステータスマークとユーザー名 */
+    #bms_chat_user_status {
+        float: left;
+    }
+    #bms_chat_otuser_status {
+        float: right;
+    }
+    #bms_status_icon {
+        float: left;
+        line-height: 2em;
+    }
+    /* ユーザー名 */
+    #bms_chat_user_name {
+        float: left;
+        line-height: 2em;
+        padding-left: 8px;
+    }
+
+/* タイムライン部分 */
+#bms_messages {
+    overflow: auto;
+    height:100%;
+    border-right: 1px solid rgb(255, 255, 255);
+    border-left: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;/*ヘッダーの下の影*/
+}
+    /* メッセージ全般のスタイル */
+    .bms_message {
+        margin: 0px;
+        padding: 0 14px;
+        font-size: 16px;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    .message_box{
+        padding: 10px;
+    }
+    .bms_message_box{
+        margin-top: 20px;
+        max-width: 100%;
+        font-size: 16px;
+    }
+    .bms_message_content{
+        padding: 20px;
+    }
+    /* メッセージ */
+.chat-icon img{
+    width: 6vw;
+    height: 6vw;
+    border: 1px solid #000;
+    border-radius: 50%;
+    }
+    .chat-icon{
+    float: left;
+    width: 7%;
+    
+    }
+    .chat_content{
+    margin-left: 2vw;
+    float: left;
+    font-size: 1.5vw;
+    }
+    .bms_message_box {
+    color: #333;
+    background: #fff;
+    border: 2px solid #13178E;
+    border-radius: 30px 30px 30px 0px;
+    margin-right: 50px;
+    }
+    .bms_message_text{
+    color: rgb(0, 0, 0);
+    background: #ffffff;
+    border: 2px solid #868686;
+    border-radius: 2vw 2vw 2vw 0px;
+    margin-right: 50px;
+    }
+    /* 回り込みを解除 */
+    .bms_clear {
+        clear: both;
+
+    }
+
+/* テキストエリア、送信ボタン */
+#bms_send {
+    background-color:#eee;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 48px;
+    padding: 4px;
+}
+    #bms_send_message{
+        width: calc(100% - 75px);
+        line-height: 16px;
+        height: 48px;
+        padding: 14px 6px 0px 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: left;
+        box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;
+        box-sizing: border-box;
+
+    }
+    #bms_send_btn {
+        width: 72px;
+        height: 48px;
+        font-size: 16px;
+        line-height: 3em;
+        float: right;
+        color: #fff;
+        font-weight: bold;
+        background: #bcbcbc;
+        text-align: center;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    #bms_send_btn:hover {
+        background: #13178E; 
+        cursor: pointer;
+    }
+
+    /*バリデーション*/
+    #your_container .alert{
+        text-align: center;
+    }
+
+
+    
