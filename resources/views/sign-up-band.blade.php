@@ -38,6 +38,7 @@
                     <input type="hidden" name="band_flag" value=1>
                     <button>登録する</button>
                 </form>
+                <p><a href="/">戻る</a></p>
             </main>
         </div>
     </body>
