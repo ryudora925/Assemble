@@ -57,7 +57,7 @@
                             <strong class="validation">{{ $errors->first('name') }}</strong>
                         @endif
                         @csrf
-                        <textarea class="intro-edit" name='introduction' placeholder="現在のバンド構成、紹介文などを記入してください">{{$band_info['introduction']}}</textarea>
+                        <textarea class="intro-edit" name='introduction' placeholder="現在のバンド構成、紹介文などを記入してください">{{$band_info['introduction'] ?? ''}}</textarea>
                         @if($errors->first('introduction'))
                             <strong class="validation">{{ $errors->first('introduction') }}</strong>
                         @endif
@@ -66,8 +66,12 @@
                         <p>募集しているパート: 
                             <select name="want_part" size="1">
                                 @foreach( App\Models\Utilities::PART as $key => $want_part)
-                                    <option value="{{$key}}" @if($key == $band_info['want_part'] )selected @endif>{{$want_part}}</option>
-                                @endforeach
+                                    @if(!empty($band_info))
+                                        <option value="{{$key}}" @if($key == $band_info['want_part'] )selected @endif>{{$want_part}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$want_part}}</option>
+                                    @endif
+                                        @endforeach
                             </select>
                             @if($errors->first('want_part'))
                                 <strong class="validation">{{ $errors->first('want_part') }}</strong>
@@ -76,7 +80,11 @@
                         <p>主な活動地域: 
                             <select name="area" size="1">
                                 @foreach( App\Models\Utilities::AREA as $key => $area)
-                                    <option value="{{$key}}" @if($key == $band_info['area'] )selected @endif>{{$area}}</option>
+                                    @if(!empty($band_info))
+                                        <option value="{{$key}}" @if($key == $band_info['area'] )selected @endif>{{$area}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$area}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('area'))
@@ -84,7 +92,11 @@
                             @endif
                         </p>
                         <p>今いるパート: 
-                            <input type="text" name="band_part" value="{{$band_info['band_part']}}" maxlength="64">
+                            @if(!empty($band_info))
+                                <input type="text" name="band_part" value="{{$band_info['band_part']}}" maxlength="64">
+                            @else
+                                <input type="text" name="band_part" value="" maxlength="64">
+                            @endif
                             @if($errors->first('band_part'))
                                 <strong class="validation">{{ $errors->first('band_part') }}</strong>
                             @endif
@@ -92,7 +104,11 @@
                         <p>曲のジャンル: 
                             <select name="category" size="1">
                                 @foreach( App\Models\Utilities::CATEGORY as $key => $category)
-                                    <option value="{{$key}}" @if($key == $band_info['category'] )selected @endif>{{$category}}</option>
+                                    @if(!empty($band_info))
+                                        <option value="{{$key}}" @if($key == $band_info['category'] )selected @endif>{{$category}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$category}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('category'))
@@ -102,7 +118,11 @@
                         <p>カバーorオリジナル: 
                             <select name="style" size="1">
                                 @foreach( App\Models\Utilities::STYLE as $key => $style)
-                                    <option value="{{$key}}" @if($key == $band_info['style'] )selected @endif>{{$style}}</option>
+                                    @if(!empty($band_info))
+                                        <option value="{{$key}}" @if($key == $band_info['style'] )selected @endif>{{$style}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$style}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('style'))

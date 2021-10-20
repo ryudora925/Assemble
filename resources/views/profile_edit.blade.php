@@ -61,7 +61,7 @@
                             <strong class="validation">{{ $errors->first('name') }}</strong>
                         @endif
                         @csrf
-                        <textarea class="intro-edit" name='introduction'>{{$person_info['introduction']}}</textarea>
+                        <textarea class="intro-edit" name='introduction'>{{$person_info['introduction'] ?? ''}}</textarea>
                         @if($errors->first('introduction'))
                             <strong class="validation">{{ $errors->first('introduction') }}</strong>
                         @endif
@@ -72,18 +72,25 @@
                         <p>パート:
                             <select name="part" size="1">
                                 @foreach( App\Models\Utilities::PART as $key => $part)
-                                    <option value="{{$key}}" @if($key == $person_info['part'] )selected @endif>{{$part}}</option>
+                                    @if(!empty($person_info))
+                                        <option value="{{$key}}" @if($key == $person_info['part'] )selected @endif>{{$part}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$part}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('part'))
-                                <strong class="validation">{{ $errors->first('part') }}</strong>
+                            <strong class="validation">{{ $errors->first('part') }}</strong>
                             @endif
-
                         </p>
                         <p>楽器経歴:
                             <select name="year" size="1">
                                 @foreach( App\Models\Utilities::YEAR as $key => $year)
-                                    <option value="{{$key}}" @if($key == $person_info['year'] )selected @endif>{{$year}}</option>
+                                    @if(!empty($person_info))    
+                                        <option value="{{$key}}" @if($key == $person_info['year'] )selected @endif>{{$year}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$year}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('year'))
@@ -94,7 +101,11 @@
                         <p>居住地:
                             <select name="area" size="1">
                                 @foreach( App\Models\Utilities::AREA as $key => $area)
-                                    <option value="{{$key}}" @if($key == $person_info['area'] )selected @endif>{{$area}}</option>
+                                    @if(!empty($person_info))
+                                        <option value="{{$key}}" @if($key == $person_info['area'] )selected @endif>{{$area}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$area}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('area'))
@@ -104,7 +115,11 @@
                         <p>性別:
                             <select name="gender" size="1">
                                 @foreach( App\Models\Utilities::GENDER as $key => $gender)
-                                    <option value="{{$key}}" @if($key == $person_info['gender'] )selected @endif>{{$gender}}</option>
+                                    @if(!empty($person_info))    
+                                        <option value="{{$key}}" @if($key == $person_info['gender'] )selected @endif>{{$gender}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$gender}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('gender'))
@@ -112,15 +127,23 @@
                             @endif
                         </p>
                         <p>好きな曲:
-                            <input type="text" name="song" value="{{$person_info['song']}}">
+                            @if(!empty($person_info))
+                                <input type="text" name="song" value="{{$person_info['song']}}">
+                            @else
+                                <input type="text" name="song" value="">
+                            @endif
                             @if($errors->first('song'))
                                 <strong class="validation">{{ $errors->first('song') }}</strong>
                             @endif
                         </p>
                         <p>やりたいジャンル:
-                            <select name="category" size="1">
+                        <select name="category" size="1">
                                 @foreach( App\Models\Utilities::CATEGORY as $key => $category)
-                                    <option value="{{$key}}" @if($key == $person_info['category'] )selected @endif>{{$category}}</option>
+                                    @if(!empty($person_info))
+                                        <option value="{{$key}}" @if($key == $person_info['category'] )selected @endif>{{$category}}</option>
+                                    @else
+                                        <option value="{{$key}}" >{{$category}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @if($errors->first('category'))

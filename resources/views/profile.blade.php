@@ -31,7 +31,11 @@
                 <!--名前、自己紹介文-->
                 <div class="myself">
                     <p class="name">名前: {{$user_info['name']}}</p>
+                    @if(!empty($person_info))
                     <p class="intro">{{$person_info['introduction']}}</p>
+                    @else
+                    <p class="intro"></p>
+                    @endif
                     <!--パート、経歴、居住地、性別、やりたいジャンル-->
                     <div class="details">
                         @if(!empty($person_info))
