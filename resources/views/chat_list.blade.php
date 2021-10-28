@@ -15,25 +15,38 @@
         @include('layouts/header')
 
         <div class="main">
-            <!--サイドメニュー-->                        <p class="messsage">{{ Str::limit($chat->message,50) }}</p>
+            <!--サイドメニュー-->                       
+            @include('layouts/side')
+        
+
+            <!-- やり取り中のトーク一覧 -->
+            <div class="chatbox">
+            @foreach($chat_list as $key => $chat)
+                <div class="chatlist">
+                    @if($chat->icon)
+                    <img src="{{ asset('storage/'.$chat->icon) }}" alt="">
+                    @else
+                    <img src="{{ asset('/images/default.jpeg') }}" alt="">
+                    @endif
+                    
+                    <div class="chatinfo">
+                        
+                        <a href="/other-profile/{{ $chat->id }}">
+                        <p class="name">{{ $chat->name }}</p>
+                        </a>
+                            <!-- isset使う -->
+                        @if(isset($chat->band_area))
+                        <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->band_area] }}</p>
+                        @else
+                        <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->person_area] }}</p>
+                        @endif
+                        <p class="update-at">{{ $chat->chat_time }}</p>
+                        <p class="messsage">{{ Str::limit($chat->message,50) }}</p>
                     </div>
                 </div>
-                @endforeach
-            @include('layouts/side')
-
-        <!-- やり取り中のトーク一覧 -->
-        @foreach($chat_list as $key => $chat)
-        <div class="chatlist">
-            <a href=""><img src="/storage/" alt=""></a>
-            <div class="chatinfo">
-                <p class="name">{{ $chat->name }}</p>
-                <p class="area">エリア：{{ App\Models\Utilities::AREA[$chat->area] }}</p>
-                <p class="update-at">{{ $chat->chat_time }}</p>
-                <p class="messsage">{{ $chat->message }}</p>
+            @endforeach
             </div>
-        
         </div>
-        @endforeach
         <script src="{{ asset('/js/side.js') }}"></script>
     </body>
 </html>

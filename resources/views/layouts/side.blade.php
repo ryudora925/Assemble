@@ -22,7 +22,7 @@
         <!--やりとり中-->
         <div class="list">
             <li class="nav-item">
-                <a href="">やり取り中</a>
+                <a href="/chat_list">やり取り中</a>
             </li>
         </div>
         <!--ログアウト-->
