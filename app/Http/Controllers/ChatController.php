@@ -36,7 +36,7 @@ class ChatController extends Controller
 
         $chat_list = new chatlist;
         $chat_list->user_id = $user_info->id;
-        $chat_list->write_user_id = $m_request->write_user_id;
+        $chat_list->write_user_id = $user_info->id;
         $chat_list->save();
 
         return redirect('profile');
