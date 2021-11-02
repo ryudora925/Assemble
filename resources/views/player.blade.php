@@ -8,6 +8,15 @@
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <title>一覧画面</title>
         <meta name="description" content="一覧画面">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7QX4T04RF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-V7QX4T04RF');
+        </script>
     </head>
 
     <body>
@@ -67,7 +76,15 @@
                 <div class="item banner-item">
                     <!--仮バナー-->
                     <p>バナー</p>
-                    <img src="/images/0.jpeg" alt="">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5693013664527871" crossorigin="anonymous"></script>
+                    <!-- バナー広告 -->
+                    <ins class="adsbygoogle"
+                        style="display:inline-block;width:120px;height:120px"
+                        data-ad-client="ca-pub-5693013664527871"
+                        data-ad-slot="8325157164"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
                 </div>
                 <!--ページネーション-->
