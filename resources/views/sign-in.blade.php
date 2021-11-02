@@ -7,6 +7,15 @@
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
         <title>ログイン画面</title>
         <meta name="description" content="ログイン画面">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7QX4T04RF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-V7QX4T04RF');
+        </script>
     </head>
 
     <body>
